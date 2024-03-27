@@ -1,0 +1,6 @@
+﻿  LeetCode_Function.c
+  Link_list.c
+  test.c
+  正在生成代码...
+E:\计算机\考研408\数据结构\Link_List\Link_List\Link_list.c(174,14): warning C4098: “STListDelete”:“void”函数返回值
+  Link_List.vcxproj -> E:\计算机\考研408\数据结构\Link_List\x64\Debug\Link_List.exe
