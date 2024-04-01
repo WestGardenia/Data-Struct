@@ -2,7 +2,7 @@
 
 void test1()
 {
-	LTNode* plist = ListInit();
+	LTNode* plist = ListInit(); // 初始化链表
 
 	ListPushBack(plist, 1);
 	ListPushBack(plist, 2);
@@ -46,9 +46,20 @@ void test1()
 	printf("头删测试:");
 	ListPrint(plist);
 
-	LTNode* findnode = ListFind(plist, 1);
+	LTNode* findnode = ListFind(plist, 1); // 查找测试
 	assert(findnode);
-	printf("查找测试：%d", findnode->val);
+	printf("查找测试：%d\n", findnode->val);
+
+	ListInsert(findnode, 100);
+	printf("中间插入测试：");
+	ListPrint(plist); // 中间插入测试
+
+	ListErase(findnode);
+	printf("中间删除测试：");
+	ListPrint(plist); // 中间删除测试
+
+	ListDestroy(plist);
+	plist = NULL;
 }
 
 

@@ -60,6 +60,9 @@ void ListPushBack(LTNode* phead, LTDataType x) // 链表尾插
 	newtail->next = phead;
 	newtail->prev = tail;
 	phead->prev = newtail;
+
+	// 可以复用ListInsert函数
+	// ListInsert(phead,x);
 }
 
 void ListPopBack(LTNode* phead) // 链表尾删
@@ -74,6 +77,9 @@ void ListPopBack(LTNode* phead) // 链表尾删
 	newtail->next = phead;
 	// 释放被删除结点的空间
 	free(tail);
+
+	// 可以复用ListErase函数
+	// ListErase(phead->prev);
 }
 
 void ListPushFront(LTNode* phead, LTDataType x) // 链表头插
@@ -88,6 +94,9 @@ void ListPushFront(LTNode* phead, LTDataType x) // 链表头插
 	newnode->prev = phead;
 	head->prev = newnode;
 	phead->next = newnode;
+
+	// 可以复用ListInsert函数
+	// ListInsert(phead->next,x);
 }
 
 void ListPopFront(LTNode* phead) // 链表头删
@@ -102,6 +111,9 @@ void ListPopFront(LTNode* phead) // 链表头删
 	newhead->prev = phead;
 	// 释放原头结点空间
 	free(head);
+
+	// 可以复用ListErase函数
+	// ListErase(phead->next);
 }
 
 LTNode* ListFind(LTNode* phead, LTDataType x)  // 寻找链表中的某个值，如果有重复的，则返回第一个找到相同的
@@ -115,4 +127,42 @@ LTNode* ListFind(LTNode* phead, LTDataType x)  // 寻找链表中的某个值，如果有重复
 	}
 	printf("没有相同值，查找错误\n");
 	return 0;
+}
+
+void ListInsert(LTNode* pos, LTDataType x)	// 从中间pos位置之前插入数据
+{
+	assert(pos);
+	LTNode* newnode = BuyListNode(x);
+	LTNode* newprev = pos->prev;
+	// 插入操作
+	newprev->next = newnode;
+	newnode->next = pos;
+	newnode->prev = newprev;
+	pos->prev = newnode;
+}
+
+void ListErase(LTNode* pos)	// 从中间位置删除数据
+{
+	assert(pos);
+	LTNode* posprev = pos->prev;
+	LTNode* posnext = pos->next;
+	// 断连和重连
+	posprev->next = posnext;
+	posnext->prev = posprev;
+	// 释放pos结点空间
+	free(pos);
+}
+
+void ListDestroy(LTNode* phead) // 销毁链表
+{
+	assert(phead);
+	LTNode* cur = phead;
+	while (cur != phead)
+	{
+		LTNode* next = cur->next;
+		free(cur);
+		cur = next->next;
+	}
+	free(phead);
+	phead = NULL;
 }

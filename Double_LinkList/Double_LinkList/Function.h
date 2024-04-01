@@ -23,6 +23,8 @@ LTNode* ListInit(); // Á´±í³õÊ¼»¯
 
 LTNode* BuyListNode(LTDataType x); // ´¬´´½¨Á´±íĞÂ½áµã
 
+void ListDestroy(LTNode* phead); // Ïú»ÙÁ´±í
+
 void ListPrint(LTNode* phead); // Á´±í´òÓ¡
 
 void ListPushBack(LTNode* phead, LTDataType x); // Á´±íÎ²²å 
@@ -37,4 +39,5 @@ LTNode* ListFind(LTNode* phead, LTDataType x);  // Ñ°ÕÒÁ´±íÖĞµÄÄ³¸öÖµ£¬Èç¹ûÓĞÖØ¸
 
 void ListInsert(LTNode* pos, LTDataType x);	// ´ÓÖĞ¼äÎ»ÖÃ²åÈëÊı¾İ
 
-void ListErase(LTNode* pos, LTDataType x);	// ´ÓÖĞ¼äÎ»ÖÃÉ¾³ıÊı¾İ
+void ListErase(LTNode* pos);	// ´ÓÖĞ¼äÎ»ÖÃÉ¾³ıÊı¾İ
+
