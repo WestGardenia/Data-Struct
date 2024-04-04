@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="LeetCode_Stack.c" />
     <ClCompile Include="Stack.c" />
     <ClCompile Include="test.c" />
   </ItemGroup>
