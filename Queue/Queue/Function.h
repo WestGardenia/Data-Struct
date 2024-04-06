@@ -6,14 +6,15 @@
 #include<stdbool.h>
 
 typedef int QDataType;
+typedef struct QueueNode QNode;
 
 struct QueueNode
 {
 	QNode* next;	// 定义链表结点结构体中指针域next
-	QDataType x;	// 定义结点链表数据域
+	QDataType val;	// 定义结点链表数据域
 };
 
-typedef struct QueueNode QNode;
+typedef struct Queue Queue;
 
 struct Queue
 {
@@ -25,7 +26,7 @@ struct Queue
 // 第二次定义的结构体是队列的结构体，代表了整个队列
 // 这样定义的好处在于，实现接口函数时，可以避免多次二级指针的调用
 
-typedef struct Queue Queue;
+
 
 void QueueInit(Queue* pq);	// 队列的定义
 
@@ -39,7 +40,7 @@ QDataType QueueFront(Queue* pq);	// 取队头数据
 
 QDataType QueueBack(Queue* pq);		// 取队尾数据
 
-size_t QueueSize(Queue* pq);	// 计算队列长度
+int QueueSize(Queue* pq);	// 计算队列长度
 
 bool QueueEmpty(Queue* pq);	 //判断队列是否为空
 
