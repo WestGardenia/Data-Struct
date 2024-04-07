@@ -18,12 +18,21 @@
     <ClInclude Include="Function.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="CircleQueue-Function.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Queue.c">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="test.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Queue--Stack.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CircleQueue.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

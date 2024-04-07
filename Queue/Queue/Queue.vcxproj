@@ -127,9 +127,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CircleQueue-Function.h" />
     <ClInclude Include="Function.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CircleQueue.c" />
+    <ClCompile Include="Queue--Stack.c" />
     <ClCompile Include="Queue.c" />
     <ClCompile Include="test.c" />
   </ItemGroup>

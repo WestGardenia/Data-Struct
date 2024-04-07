@@ -24,6 +24,9 @@
     <ClCompile Include="LeetCode_Stack.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Queue--Stack.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Function.h">

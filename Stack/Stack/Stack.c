@@ -77,5 +77,5 @@ bool StackEmpty(SK* ps)	// 判断栈是否为空栈
 {
 	assert(ps);
 
-	return ps->top_val == 0;
+	return ps->top_val == 0;	// 如果是空栈，则返回1；如果不是空栈，则返回0
 }
