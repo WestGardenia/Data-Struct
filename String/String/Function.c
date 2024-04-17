@@ -20,7 +20,7 @@ void StringAssign(String* s,char* data)	// 串--赋值
 	assert(s);
 	if (s->data)
 	{
-		free(s);	// 如果指针中data有值，需要将其free掉，防止野指针
+		free(s->data);	// 如果指针中data有值，需要将其free掉，防止野指针
 	}
 	int len = 0;
 	char* temp = data;
@@ -77,17 +77,75 @@ void StringForceMatch(String* master, String* sub)	// 串--暴力匹配
 		{
 			// 如果没有匹配成功，则指针发生回溯
 			j = 0;
-			i = i - j + 1;	// master字符串由于在之前匹配过程中，已经将sub字符串指针的移动数据走过，所以需要进行处理
+			i = i - j + 1;	// master字符串的指针回溯到起点的下一个位置
 			//	a	b	a	b	c	d	e	f	g
 			//	a	b	c	d	e
 		}
 	}
 	if (j == sub->length)
 	{
-		printf("force match success.\n");
+		printf("force match success！！！！！！\n");
 	}
 	else
 	{
-		printf("forec match fail.\n");
+		printf("forec match fail！！！！！！\n");
+	}
+}
+
+int* GetNext(String* s)	// 计算、获取next数组
+{
+	int* next = (int*)malloc(sizeof(int) * s->length);
+	int i = 0;
+	int j = -1;
+	next[i] = j;
+	while (i < s->length - 1)
+	{
+		if (j == -1 || s->data[i] == s->data[j])
+		{
+			i++;
+			j++;
+			next[i] = j;
+		}
+		else
+		{
+			j = next[j];
+		}
+	}
+	return next;
+}
+
+void PrintNext(int* next, int len)	// 打印next数组
+{
+	assert(next);
+	for (int i = 0; i < len; i++)
+	{
+		printf(i == 0 ? "%d" : "->%d", next[i]);
+	}
+	printf("\n");
+}
+
+void StringKMP_Match(String* master, String* sub,int* next)	// 串--KMP匹配算法
+{
+	int i = 0;
+	int j = 0;
+	while (i < master->length && j < sub->length)
+	{
+		if (j == -1 || master->data[i] == sub->data[j])
+		{
+			i++;
+			j++;
+		}
+		else
+		{
+			j = next[j];
+		}
+	}
+	if (j == sub->length)
+	{
+		printf("force match success！！！！！！\n");
+	}
+	else
+	{
+		printf("forec match fail！！！！！！\n");
 	}
 }
