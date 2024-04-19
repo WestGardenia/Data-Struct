@@ -1,0 +1,87 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\\u8BA1\u7B97\u673A\\2024.4.9-project\\Server_Client\\Binary_Tree\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0A89301F-107C-4E83-9157-A32D9A0903C3}|Binary_Tree\\Binary_Tree.vcxproj|E:\\\u8BA1\u7B97\u673A\\2024.4.9-project\\Server_Client\\Binary_Tree\\Binary_Tree\\Tree.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0A89301F-107C-4E83-9157-A32D9A0903C3}|Binary_Tree\\Binary_Tree.vcxproj|solutionrelative:Binary_Tree\\Tree.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A89301F-107C-4E83-9157-A32D9A0903C3}|Binary_Tree\\Binary_Tree.vcxproj|E:\\\u8BA1\u7B97\u673A\\2024.4.9-project\\Server_Client\\Binary_Tree\\Binary_Tree\\Binary_Tree.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0A89301F-107C-4E83-9157-A32D9A0903C3}|Binary_Tree\\Binary_Tree.vcxproj|solutionrelative:Binary_Tree\\Binary_Tree.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A89301F-107C-4E83-9157-A32D9A0903C3}|Binary_Tree\\Binary_Tree.vcxproj|E:\\\u8BA1\u7B97\u673A\\2024.4.9-project\\Server_Client\\Binary_Tree\\Binary_Tree\\test.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0A89301F-107C-4E83-9157-A32D9A0903C3}|Binary_Tree\\Binary_Tree.vcxproj|solutionrelative:Binary_Tree\\test.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 329,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Tree.h",
+              "DocumentMoniker": "E:\\\u8BA1\u7B97\u673A\\2024.4.9-project\\Server_Client\\Binary_Tree\\Binary_Tree\\Tree.h",
+              "RelativeDocumentMoniker": "Binary_Tree\\Tree.h",
+              "ToolTip": "E:\\\u8BA1\u7B97\u673A\\2024.4.9-project\\Server_Client\\Binary_Tree\\Binary_Tree\\Tree.h",
+              "RelativeToolTip": "Binary_Tree\\Tree.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAADwvxYAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-04-19T02:07:12.807Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Binary_Tree.c",
+              "DocumentMoniker": "E:\\\u8BA1\u7B97\u673A\\2024.4.9-project\\Server_Client\\Binary_Tree\\Binary_Tree\\Binary_Tree.c",
+              "RelativeDocumentMoniker": "Binary_Tree\\Binary_Tree.c",
+              "ToolTip": "E:\\\u8BA1\u7B97\u673A\\2024.4.9-project\\Server_Client\\Binary_Tree\\Binary_Tree\\Binary_Tree.c",
+              "RelativeToolTip": "Binary_Tree\\Binary_Tree.c",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-04-19T02:06:42.179Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "test.c",
+              "DocumentMoniker": "E:\\\u8BA1\u7B97\u673A\\2024.4.9-project\\Server_Client\\Binary_Tree\\Binary_Tree\\test.c",
+              "RelativeDocumentMoniker": "Binary_Tree\\test.c",
+              "ToolTip": "E:\\\u8BA1\u7B97\u673A\\2024.4.9-project\\Server_Client\\Binary_Tree\\Binary_Tree\\test.c",
+              "RelativeToolTip": "Binary_Tree\\test.c",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-04-19T02:06:52.096Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
