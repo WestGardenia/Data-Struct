@@ -54,8 +54,7 @@
               "RelativeToolTip": "Queue\\CircleQueue-Function.h",
               "ViewState": "AQIAABsAAAAAAAAAAAAAACwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-07T10:30:21.619Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-07T10:30:21.619Z"
             },
             {
               "$type": "Document",
@@ -65,7 +64,7 @@
               "RelativeDocumentMoniker": "Queue\\CircleQueue.c",
               "ToolTip": "E:\\\u8BA1\u7B97\u673A\\\u8003\u7814408\\\u6570\u636E\u7ED3\u6784\\Data-Struct\\Queue\\Queue\\CircleQueue.c",
               "RelativeToolTip": "Queue\\CircleQueue.c",
-              "ViewState": "AQIAADMAAAAAAAAAAAAAAD8AAAABAAAA",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAD8AAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2024-04-07T10:31:09.318Z",
               "EditorCaption": ""
@@ -92,8 +91,7 @@
               "RelativeToolTip": "Queue\\test.c",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-04-05T11:45:34.881Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-05T11:45:34.881Z"
             }
           ]
         }

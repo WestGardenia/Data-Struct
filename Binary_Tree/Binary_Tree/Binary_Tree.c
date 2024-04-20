@@ -62,3 +62,101 @@ void postOrder(TreeNode* RootNode)		// 二叉树--后序遍历--左-右-根
 
 	printf("%c->", RootNode->data);
 }
+
+void Create_Queue(Queue** q)	// 创建队列
+{
+	assert(*q);
+	(*q) = (Queue*)malloc(sizeof(Queue));
+	(*q)->data = NULL;
+	(*q)->next = NULL;
+}
+
+void QueuePush(Queue** q,Queue_DataType* x)	// 队列插入数据--头插
+{
+	assert(*q);
+	Queue* newnode = (Queue*)malloc(sizeof(Queue));
+	if (newnode == NULL)
+	{
+		exit(-1);
+	}
+	newnode->next = (*q)->next;
+	newnode->data = x;
+
+	(*q) = newnode;
+}
+
+TreeNode* QueuePop(Queue** q)	// 队列--取队尾数据
+{
+	assert(*q);
+
+	if (IsQueueEmpty(*q))
+	{
+		return NULL;
+	}
+	else
+	{
+		TreeNode* DirectionData = NULL;
+		Queue* pre = (*q);
+		Queue* cur = (*q);
+		
+		while (cur->next != NULL)
+		{
+			pre = cur;
+			cur = cur->next;
+		}
+		DirectionData = cur->data;
+		pre->next = NULL;
+
+		free(cur);
+		return DirectionData;
+	}
+}
+
+bool IsQueueEmpty(Queue* q)	// 队列--判断队列是非为空
+{
+	if (q == NULL)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+void QueuePrint(Queue* q)	// 打印队列
+{
+	if (IsQueueEmpty(q))
+	{
+		printf("Queue is empty!!!!!\n");
+	}
+	else
+	{
+		while (!IsQueueEmpty(q))
+		{
+			printf("%c->", q->data->data);
+			q = q->next;
+		}
+	}
+}
+
+void LevelTraverse(Queue* Q, TreeNode* RootNode)	// 二叉树--层次遍历
+{
+	QueuePush(&Q,RootNode);
+	// QueuePrint(q);
+	while (!IsQueueEmpty(Q))
+	{
+		TreeNode* newnode = QueuePop(&Q);
+		printf("%c->", newnode->data);
+		if (newnode->LChild)
+		{
+			QueuePush(&Q, newnode->LChild);
+			// QueuePrint(q);
+		}
+		if (newnode->RChild)
+		{
+			QueuePush(&Q, newnode->RChild);
+			// QueuePrint(q);
+		}
+	}
+}
