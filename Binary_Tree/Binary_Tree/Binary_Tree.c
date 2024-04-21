@@ -63,99 +63,235 @@ void postOrder(TreeNode* RootNode)		// 二叉树--后序遍历--左-右-根
 	printf("%c->", RootNode->data);
 }
 
-void Create_Queue(Queue** q)	// 创建队列
+// ——————————————————————————————————————————————————————————————————————————————————
+void QueueInit(Queue* pq)	// 队列的定义
 {
-	assert(*q);
-	(*q) = (Queue*)malloc(sizeof(Queue));
-	(*q)->data = NULL;
-	(*q)->next = NULL;
+	assert(pq);
+	pq->head = NULL;
+	pq->tail = NULL;
 }
 
-void QueuePush(Queue** q,Queue_DataType* x)	// 队列插入数据--头插
+void QueueDestroy(Queue* pq)	// 队列的销毁
 {
-	assert(*q);
-	Queue* newnode = (Queue*)malloc(sizeof(Queue));
-	if (newnode == NULL)
+	assert(pq);
+	QNode* cur = pq->head;
+	while (cur->next != NULL)
 	{
-		exit(-1);
+		QNode* next = cur->next;
+		free(cur);
+		cur = next;
 	}
-	newnode->next = (*q)->next;
-	newnode->data = x;
-
-	(*q) = newnode;
+	pq->head = pq->tail = NULL;
 }
 
-TreeNode* QueuePop(Queue** q)	// 队列--取队尾数据
+void QueuePush(Queue* pq, Queue_DataType* x)	// 队列数据插入
 {
-	assert(*q);
-
-	if (IsQueueEmpty(*q))
+	assert(pq);
+	QNode* newnode = (QNode*)malloc(sizeof(QNode));
+	newnode->data = x;
+	newnode->next = NULL;
+	if (QueueEmpty(pq))
 	{
-		return NULL;
+		pq->head = newnode;
+		pq->tail = newnode;
 	}
 	else
 	{
-		TreeNode* DirectionData = NULL;
-		Queue* pre = (*q);
-		Queue* cur = (*q);
-		
+		newnode->next = pq->head;
+		pq->head = newnode;
+	}
+
+}
+
+void QueuePop(Queue* pq)	// 队列数据出队
+ // 有BUG
+{
+	assert(pq);
+	if (QueueEmpty(pq))
+	{
+		return;
+	}
+	if (pq->head == pq->tail)
+	{
+		free(pq->head);
+		pq->head = pq->tail = NULL;
+	}
+	else
+	{
+		QNode* cur = pq->head;
+		QNode* pre = pq->head;
 		while (cur->next != NULL)
 		{
 			pre = cur;
 			cur = cur->next;
 		}
-		DirectionData = cur->data;
-		pre->next = NULL;
-
 		free(cur);
-		return DirectionData;
+		pre->next = NULL;
+		pq->tail = pre;
 	}
 }
 
-bool IsQueueEmpty(Queue* q)	// 队列--判断队列是非为空
+Queue_DataType* QueueFront(Queue* pq)	// 取队头数据
 {
-	if (q == NULL)
+	assert(pq);
+	if (QueueEmpty(pq))
 	{
-		return true;
+		return NULL;
 	}
-	else
-	{
-		return false;
-	}
+	return pq->head->data;
 }
 
-void QueuePrint(Queue* q)	// 打印队列
+Queue_DataType* QueueBack(Queue* pq)		// 取队尾数据
 {
-	if (IsQueueEmpty(q))
+	assert(pq);
+	if (QueueEmpty(pq))
 	{
-		printf("Queue is empty!!!!!\n");
+		return NULL;
 	}
-	else
+	return pq->tail->data;
+}
+
+int QueueSize(Queue* pq)	// 计算队列长度
+{
+	assert(pq);
+	int count = 0;
+	QNode* cur = pq->head;
+	while (cur == NULL)
 	{
-		while (!IsQueueEmpty(q))
-		{
-			printf("%c->", q->data->data);
-			q = q->next;
-		}
+		cur = cur->next;
+		count++;
 	}
+	return count;
+}
+
+// ——————————————————————————————————————————————————————————————————————
+// 队列操作——Copy版本
+//void QueueInit(Queue* pq)	// 队列的定义
+//{
+//	assert(pq);
+//	pq->head = NULL;
+//	pq->tail = NULL;
+//}
+//
+//void QueueDestroy(Queue* pq)	// 队列的销毁
+//{
+//	assert(pq);
+//	QNode* cur = pq->head;
+//	while (cur != NULL)
+//	{
+//		QNode* next = cur->next;
+//		free(cur);
+//		cur = next;
+//	}
+//	pq->head = pq->tail = NULL;
+//}
+//
+//void QueuePush(Queue* pq, Queue_DataType* x)	// 队列数据插入
+//{
+//	assert(pq);
+//	QNode* newnode = (QNode*)malloc(sizeof(QNode));
+//	if (newnode == NULL)
+//	{
+//		printf("空间开辟--QueuePush函数出错!!!");
+//		exit(-1);
+//	}
+//	newnode->data = x;
+//	newnode->next = NULL;
+//	if (pq->head == NULL)
+//	{
+//		// 如果队列中没有数据，即为空队列。此时将头结点和尾结点指向新malloc出来的结点
+//		pq->head = pq->tail = newnode;
+//	}
+//	else
+//	{
+//		// 如果队列中有数据，就将新结点链接到tail的后面，并更新tail的位置，将tail指向newnode
+//		pq->tail->next = newnode;
+//		pq->tail = newnode;
+//	}
+//}
+//
+//void QueuePop(Queue* pq)	// 队列数据出队
+//{
+//	// 删除队头的数据，将head保存，更新head的位置，并且free掉旧的头节点
+//	assert(pq);
+//	// 为防止空队列删除造成越界访问，需要对队列是否为空进行判断
+//	assert(!QueueEmpty(pq));
+//	QNode* newhead = pq->head;
+//	// 迭代head的位置
+//	pq->head = pq->head->next;
+//	free(newhead);
+//	if (pq->head == NULL)
+//	{
+//		// 如果队列已经被删成了一个空队列。
+//		// 由于头结点迭代时并没有对尾结点tail处理，此时tail就是一个野指针。需要将其置空
+//		pq->tail = NULL;
+//	}
+//}
+//
+//Queue_DataType* QueueFront(Queue* pq)	// 取队头数据
+//{
+//	assert(pq);
+//	// 为防止空队列删除造成越界访问，需要对队列是否为空进行判断
+//	assert(!QueueEmpty(pq));
+//
+//	return pq->head->data;
+//}
+//
+//Queue_DataType* QueueBack(Queue* pq)		// 取队尾数据
+//{
+//	assert(pq);
+//	// 为防止空队列删除造成越界访问，需要对队列是否为空进行判断
+//	assert(!QueueEmpty(pq));
+//
+//	return pq->tail->data;
+//}
+//
+//int QueueSize(Queue* pq)	// 计算队列长度
+//{
+//	assert(pq);
+//	if (pq->head == NULL)
+//		return 0;
+//	else
+//	{
+//		int count = 0;
+//		QNode* cur = pq->head;
+//		while (cur)
+//		{
+//			cur = cur->next;
+//			count++;
+//		}
+//		return count;
+//	}
+//}
+
+
+bool QueueEmpty(Queue* pq)	 //判断队列是否为空
+{
+	assert(pq);
+	return pq->head == NULL;
 }
 
 void LevelTraverse(Queue* Q, TreeNode* RootNode)	// 二叉树--层次遍历
 {
-	QueuePush(&Q,RootNode);
+	QueuePush(Q,RootNode);
 	// QueuePrint(q);
-	while (!IsQueueEmpty(Q))
+	while (!QueueEmpty(Q))
 	{
-		TreeNode* newnode = QueuePop(&Q);
+		TreeNode* newnode = QueueBack(Q);
+		QueuePop(Q);
+		//if (QueueEmpty(Q))
+		//{
+		//	printf("\nQ队列为空\n");
+		//}
 		printf("%c->", newnode->data);
 		if (newnode->LChild)
 		{
-			QueuePush(&Q, newnode->LChild);
+			QueuePush(Q, newnode->LChild);
 			// QueuePrint(q);
 		}
 		if (newnode->RChild)
 		{
-			QueuePush(&Q, newnode->RChild);
+			QueuePush(Q, newnode->RChild);
 			// QueuePrint(q);
 		}
 	}

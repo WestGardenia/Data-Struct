@@ -25,12 +25,12 @@ static void test_01()
 
 static void test_02()
 {
-	Queue* q;
+	Queue* q = (Queue*)malloc(sizeof(Queue));
 	TreeNode* pTree;
 	int index = 0;
 	char* data = "abd##e##cf##g##";
 
-	Create_Queue(&q);
+	QueueInit(q);
 	TreeCreative(&pTree,data,&index);
 
 	printf("œ»–Ú±È¿˙£∫");
