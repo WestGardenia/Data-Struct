@@ -156,7 +156,7 @@ int QueueSize(Queue* pq)	// 计算队列长度
 	assert(pq);
 	int count = 0;
 	QNode* cur = pq->head;
-	while (cur == NULL)
+	while (cur != NULL)
 	{
 		cur = cur->next;
 		count++;
@@ -264,7 +264,6 @@ int QueueSize(Queue* pq)	// 计算队列长度
 //	}
 //}
 
-
 bool QueueEmpty(Queue* pq)	 //判断队列是否为空
 {
 	assert(pq);
@@ -293,6 +292,107 @@ void LevelTraverse(Queue* Q, TreeNode* RootNode)	// 二叉树--层次遍历
 		{
 			QueuePush(Q, newnode->RChild);
 			// QueuePrint(q);
+		}
+	}
+}
+
+StackNode* StackInit()	//  初始化栈
+{
+	StackNode* newnode = (StackNode*)malloc(sizeof(StackNode));
+	if (newnode == NULL)
+	{
+		return NULL;
+		exit(-1);
+	}
+	newnode->val = NULL;
+	newnode->next = NULL;
+
+	return newnode;
+}
+
+void StackPush(StackNode* ST, Stack_DataType* val)	// 压栈操作
+{
+	StackNode* newnode = (StackNode*)malloc(sizeof(StackNode));
+	if (newnode == NULL)
+	{
+		return;
+		exit(-1);
+	}
+	newnode->val = val;
+	newnode->next = ST->next;
+	ST->next = newnode;
+	// 头插
+	// 新的结点即是栈顶元素
+}
+
+StackNode* StackPop(StackNode* ST)		// 退栈操作
+{
+	if (IsStackEmpty(ST))
+	{
+		return NULL;
+	}
+	else
+	{
+		StackNode* cur = ST->next;
+		ST->next = (cur->next == NULL ? NULL : cur->next);	// 更新栈顶
+
+		return cur;
+	}
+
+}
+
+bool IsStackEmpty(StackNode* ST)	// 判断栈空
+{
+	return ST->next == NULL;
+}
+
+void StackDestroy(StackNode* ST)	// 销毁栈
+{
+	while (!IsStackEmpty(ST))
+	{
+		StackNode* newnode = ST;
+		ST = ST->next;
+		newnode->val = NULL;
+		free(newnode);
+	}
+}
+
+void PreOrder_1(TreeNode* RootNode)	// 二叉树--先序遍历--根-左-右（非递归）
+{
+	StackNode* ST = StackInit();
+	TreeNode* node = RootNode;
+	while (node || !IsStackEmpty(ST))
+	{
+		if (node)
+		{
+			printf("%c->", node->data);
+			StackPush(ST,node);
+			node = node->LChild;
+		}
+		else
+		{
+			node = StackPop(ST)->val;
+			node = node->RChild;
+		}
+	}
+}
+
+void InOrder_1(TreeNode* RootNode)	// 二叉树--中序遍历--左-根-右（非递归）
+{
+	StackNode* ST = StackInit();
+	TreeNode* node = RootNode;
+	while (node || !IsStackEmpty(ST))
+	{
+		if (node)
+		{
+			StackPush(ST, node);
+			node = node->LChild;
+		}
+		else
+		{
+			node = StackPop(ST)->val;
+			printf("%c->", node->data);
+			node = node->RChild;
 		}
 	}
 }
