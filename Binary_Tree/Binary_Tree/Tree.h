@@ -10,6 +10,7 @@ struct TreeNode {
 	char data;
 	TreeNode* LChild;	// 定义左孩子结点
 	TreeNode* RChild;	// 定义右孩子节点
+	int flag;	// 判断对应位置节点是否被访问过
 };
 
 void TreeCreative(TreeNode** RootNode, char* data, int* index);	// 创建二叉树

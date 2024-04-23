@@ -21,6 +21,7 @@ void TreeCreative(TreeNode** RootNode,char* data,int* index)	// 创建二叉树
 		// 递归定义左右子树（本质上，创建的树节点的左右孩子结点也是一棵树）
 		*RootNode = (TreeNode*)malloc(sizeof(TreeNode));
 		(*RootNode)->data = ch;
+		(*RootNode)->flag = 0;
 		TreeCreative(&((*RootNode)->LChild),data,index);
 		TreeCreative(&((*RootNode)->RChild),data,index);
 	}
@@ -335,10 +336,21 @@ StackNode* StackPop(StackNode* ST)		// 退栈操作
 	{
 		StackNode* cur = ST->next;
 		ST->next = (cur->next == NULL ? NULL : cur->next);	// 更新栈顶
-
 		return cur;
 	}
+}
 
+StackNode* GetStackTop(StackNode* ST)		// 退栈操作
+{
+	if (IsStackEmpty(ST))
+	{
+		return NULL;
+	}
+	else
+	{
+		StackNode* cur = ST->next;
+		return ST->next;
+	}
 }
 
 bool IsStackEmpty(StackNode* ST)	// 判断栈空
@@ -394,5 +406,37 @@ void InOrder_1(TreeNode* RootNode)	// 二叉树--中序遍历--左-根-右（非递归）
 			printf("%c->", node->data);
 			node = node->RChild;
 		}
+	}
+}
+
+void PostOrder_1(TreeNode* RootNode)		// 二叉树--后序遍历--左-右-根（非递归）
+{
+	StackNode* ST = StackInit();
+	TreeNode* node = RootNode;
+	while (node || !IsStackEmpty(ST))
+	{
+		if (node)
+		{
+			StackPush(ST, node);
+			node = node->LChild;
+		}
+		else
+		{
+			TreeNode* top = GetStackTop(ST)->val;
+			if (top->RChild && top->RChild->flag == 0)
+			{
+				top = top->RChild;
+				StackPush(ST, top);
+				node = top->LChild;
+			}
+			else
+			{
+				top = StackPop(ST)->val;
+				printf("%c->", top->data);
+				top->flag = 1;
+			}
+
+		}
+
 	}
 }

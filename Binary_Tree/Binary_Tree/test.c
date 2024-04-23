@@ -59,6 +59,10 @@ static void test_03()
 	printf("中序遍历：");
 	InOrder_1(pTree);
 	printf("中序遍历成功\n");
+
+	printf("后序遍历：");
+	PostOrder_1(pTree);
+	printf("后序遍历成功\n");
 }
 
 int main()
