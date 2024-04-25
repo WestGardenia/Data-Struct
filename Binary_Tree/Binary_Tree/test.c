@@ -1,5 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include"Tree.h"
+#include"Threaded_BinaryTree.h"
 
 static void test_01()
 {
@@ -65,10 +66,24 @@ static void test_03()
 	printf("后序遍历成功\n");
 }
 
+void test_04()
+{
+	Thread_TreeNode* pTree;
+	int index = 0;
+	char* data = "ABD##E##CF##G##";
+	Thread_TreeNode* pre = NULL;
+	pre->RFlag = 1;
+	pre->RChild = NULL;
+
+	Thread_TreeCreative(&pTree, data, &index);
+
+}
+
 int main()
 {
 	// test_01();
 	// test_02();
 	test_03();
+	test_04();
 	return 0;
 }
