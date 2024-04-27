@@ -70,12 +70,31 @@ void test_04()
 {
 	Thread_TreeNode* pTree;
 	int index = 0;
-	char* data = "ABD##E##CF##G##";
+	char* data = "D##BEA##F##CG##";
 	Thread_TreeNode* pre = NULL;
+
+
+	// 创建线索二叉树
+	Thread_TreeCreative(&pTree, data, &index);
+	// 线索二叉树——中序遍历
+	InThread_Tree(pTree, &pre);
+
 	pre->RFlag = 1;
 	pre->RChild = NULL;
 
-	Thread_TreeCreative(&pTree, data, &index);
+	Thread_TreeNode* cur = NULL;
+
+	cur = GetFirst(pTree);
+	printf("中序遍历下线索二叉树的头结点（最左边的孩子节点）：%c\n", cur->data);
+	printf("test sucess\n");
+
+	cur = GetNext(pTree);
+	printf("%c\n", cur->data);
+
+	for (Thread_TreeNode* node = GetFirst(pTree); node != NULL; node = GetNext(node))
+	{
+		printf("%c->", node->data);
+	}
 
 }
 
@@ -83,7 +102,7 @@ int main()
 {
 	// test_01();
 	// test_02();
-	test_03();
+	// test_03();
 	test_04();
 	return 0;
 }

@@ -13,14 +13,18 @@
 
 //          A
 //     B		C
-// D		E
+// D	 E	  F		G	
 // 对于像这样一颗二叉树，其中序遍历结果为：
-// D	B	E	A	C
+// D	B	E	A	F	C	G
 // 将中序遍历得到的结果看作为一种线性结构（比如链表），那么我们可以得到这样一种类似双链表（实际为二叉树）的类线性结构
 // NULL	<----- D <----> B <----> E <----> A <----> C ----> NULL
 // 在这样一种数据结构中 D 的前驱为空指针（可以是哨兵位的头结点）
 //						E 的后继为空指针，作为链表的结尾标志
 // 它们这些用来指向前驱和后继的指针就是原二叉树中作为叶子节点而没有用上的空的左右孩子节点（就是那 n+1 个指针）
+// 空的RChild指向它的后继——如果某个节点的RChild中存放的是右孩子节点，则其RFlag置0；相反，如果存放的是这个节点的后继，则RFlag置1
+// 空的RChild指向它的后继——
+// 空的LChild指向它的前驱——如果某个节点的LChild中存放的是左孩子节点，则其LFlag置0；相反，如果存放的是这个节点的前驱，则LFlag置1
+// 
 // 这样，一种逻辑结构上为树，物理结构为链表的数据结构就完成了
 // 
 
@@ -38,6 +42,10 @@ struct Thread_TreeNode {
 void Thread_TreeCreative(Thread_TreeNode** RootNode, char* data, int* index);	// 创建二叉树
 
 void InThread_Tree(Thread_TreeNode* RootNode, Thread_TreeNode** pre);	// 二叉树线索化
+
+Thread_TreeNode* GetFirst(Thread_TreeNode* RootNode);
+
+Thread_TreeNode* GetNext(Thread_TreeNode* RootNode);
 
 void PreOrder_2(Thread_TreeNode* RootNode);	// 二叉树--先序遍历--根-左-右
 
