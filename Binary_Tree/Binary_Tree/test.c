@@ -70,7 +70,7 @@ void test_04()
 {
 	Thread_TreeNode* pTree;
 	int index = 0;
-	char* data = "D##BEA##F##CG##";
+	char* data = "ABD##E##CF##G##";
 	Thread_TreeNode* pre = NULL;
 
 
