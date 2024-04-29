@@ -24,12 +24,80 @@ void Thread_TreeCreative(Thread_TreeNode** RootNode, char* data, int* index)	// 
 	}
 }
 
-void InThread_Tree(Thread_TreeNode* RootNode, Thread_TreeNode** pre)	// 二叉树线索化
+void PreThread_Tree(Thread_TreeNode* RootNode, Thread_TreeNode** pre)	// 线索二叉树--先序遍历--左-根-右
 {
 	// 由于要将传入的根节点（每次递归传入的都是子树的根结点）与其前驱相连接
 	// 所以需要将每次在中序遍历得到的前一个结点记录下来
 	if (RootNode)
 	{
+		// 线索化
+		// 注意：孩子节点的前驱是pre
+		//		pre的后继节点是孩子节点
+		if (RootNode->LChild == NULL)
+		{
+			// 如果根节点的左孩子为空，则将左孩子结点指向前驱节点
+			RootNode->LFlag = 1;
+			RootNode->LChild = *pre;
+		}
+		if ((*pre) != NULL && (*pre)->RChild == NULL)
+		{
+			// 初始状态：即pre结点还未迭代过
+			(*pre)->RFlag = 1;
+			(*pre)->RChild = RootNode;
+		}
+		(*pre) = RootNode;
+
+		// 左、右子树
+		// 注意这里与中序遍历的区别
+		// 由于在遍历之前已经对二叉树的结构（叶子结点的左右孩子结点）进行了改变
+		// 比如结点D	D->LChild = B
+		//				B->LChild = D
+		// 这样进行了结构上的改变之后，会让递归调用的函数循环递归，造成死循环
+		// 所以需要在递归之前进行一次对于Flag值的判断
+		if (RootNode->LFlag == 0)
+		{
+			// 如果LFlag值为0，则表示该结点的LChild节点中存放的是原始二叉树中的结点，而非线索化之后的前驱
+			PreThread_Tree(RootNode->LChild, pre);
+		}
+		PreThread_Tree(RootNode->RChild, pre);
+	}
+}
+
+Thread_TreeNode* Pre_GetNext(Thread_TreeNode* RootNode)
+{
+	if (RootNode->RFlag == 1)
+	{
+		// 如果传入节点的RFlag = 1，则表示该结点为叶子节点并且RChild节点中存放的是某个后继结点，即就是我们所需要的next结点
+		return RootNode->RChild;
+	}
+	else
+	{
+		// 如果传入节点的RFlag = 0，则表示该结点存在右孩子，那么根据先序遍历顺序（根左右），next结点只有两种情况
+		if (RootNode->LFlag == 1)
+		{
+			// 1、当LFlag = 1，此时表明RootNode结点有右孩子而无左孩子（左孩子作为前驱指向某个前驱节点）。根据先序遍历顺序（根左右），此时next结点就是RChild结点
+			return RootNode->RChild;
+		}
+		else
+		{
+			// 2、当LFlag = 0，此时表明RootNode结点有左孩子。那么根据先序遍历顺序（根左右），此时next结点就是LChild结点
+			return RootNode->LChild;
+		}
+	}
+	// 精简版本：
+	//if (RootNode->RFlag == 1 || RootNode->LFlag == 0)
+	//	return RootNode->RChild;
+	//else
+	//	return RootNode->LChild;
+}
+
+void InThread_Tree(Thread_TreeNode* RootNode, Thread_TreeNode** pre)	// 二叉树线索化--中序遍历--左-根-右
+{
+	// 由于要将传入的根节点（每次递归传入的都是子树的根结点）与其前驱相连接
+	// 所以需要将每次在中序遍历得到的前一个结点记录下来
+	if (RootNode)
+	{
+		// 左子树
 		InThread_Tree(RootNode->LChild, pre);
 		// 线索化
 		// 注意：孩子节点的前驱是pre
@@ -48,11 +116,12 @@ void InThread_Tree(Thread_TreeNode* RootNode, Thread_TreeNode** pre)	// 二叉树线
 		}
 		(*pre) = RootNode;
 
+		// 右子树
 		InThread_Tree(RootNode->RChild, pre);
 	}
 }
 
-Thread_TreeNode* GetFirst(Thread_TreeNode* RootNode)
+Thread_TreeNode* In_GetFirst(Thread_TreeNode* RootNode)
 {
 	assert(RootNode);
 	// 循环版本：
@@ -70,11 +139,11 @@ Thread_TreeNode* GetFirst(Thread_TreeNode* RootNode)
 	// 迭代版本：
 	if (RootNode->LFlag == 0)
 	{
-		return GetFirst(RootNode->LChild);
+		return In_GetFirst(RootNode->LChild);
 	}
 }
 
-Thread_TreeNode* GetNext(Thread_TreeNode* RootNode)
+Thread_TreeNode* In_GetNext(Thread_TreeNode* RootNode)
 {
 	// 在线索二叉树中，RootNode结点的next只有两种情况：
 	// 1、非叶子节点
@@ -90,6 +159,6 @@ Thread_TreeNode* GetNext(Thread_TreeNode* RootNode)
 	else
 	{
 		// 如果RFlag值为0，则表示该结点的后继是RChild中存放的该节点的右孩子结点
-		return GetFirst(RootNode->RChild);
+		return In_GetFirst(RootNode->RChild);
 	}
 }

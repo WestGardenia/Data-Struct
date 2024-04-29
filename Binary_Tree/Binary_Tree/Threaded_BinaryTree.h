@@ -14,8 +14,13 @@
 //          A
 //     B		 C
 // D	  E	  F		G	
-// 对于像这样一颗二叉树，其中序遍历结果为：
+// 对于像这样一颗二叉树，其
+// 先序遍历结果为：
+// A	B	D	E	C	F	G
+// 中序遍历结果为：
 // D	B	E	A	F	C	G
+// 后序遍历结果为：
+// D	E	B	F	G	C	A
 // 将中序遍历得到的结果看作为一种线性结构（比如链表），那么我们可以得到这样一种类似双链表（实际为二叉树）的类线性结构
 // NULL	<----- D <----> B <----> E <----> A <----> C ----> NULL
 // 在这样一种数据结构中 D 的前驱为空指针（可以是哨兵位的头结点）
@@ -42,12 +47,18 @@ void Thread_TreeCreative(Thread_TreeNode** RootNode, char* data, int* index);	//
 
 void InThread_Tree(Thread_TreeNode* RootNode, Thread_TreeNode** pre);	// 二叉树线索化
 
-Thread_TreeNode* GetFirst(Thread_TreeNode* RootNode);
+void PreThread_Tree(Thread_TreeNode* RootNode, Thread_TreeNode** pre);	// 线索二叉树--先序遍历--左-根-右
 
-Thread_TreeNode* GetNext(Thread_TreeNode* RootNode);
+//Thread_TreeNode* Pre_GetFirst(Thread_TreeNode* RootNode);
+// 不需要去取结点函数，是因为头结点就是二叉树根结点
 
-void PreOrder_2(Thread_TreeNode* RootNode);	// 二叉树--先序遍历--根-左-右
+Thread_TreeNode* Pre_GetNext(Thread_TreeNode* RootNode);
 
-void InOrder_2(Thread_TreeNode* RootNode);	// 二叉树--中序遍历--左-根-右
+void InThread_Tree(Thread_TreeNode* RootNode, Thread_TreeNode** pre);	// 线索二叉树--中序遍历--左-根-右
 
-void PostOrder_2(Thread_TreeNode* RootNode);		// 二叉树--后序遍历--左-右-根
+Thread_TreeNode* In_GetFirst(Thread_TreeNode* RootNode);
+
+Thread_TreeNode* In_GetNext(Thread_TreeNode* RootNode);
+
+void PostThread_Tree(Thread_TreeNode* RootNode, Thread_TreeNode** pre);	// 线索二叉树--后序遍历--左-根-右
+
