@@ -41,7 +41,7 @@ static void test_02()
 	LevelTraverse(q, pTree);
 	printf("层次遍历成功！！！\n");
 
-	QueueDestroy(q);
+	//QueueDestroy(q);
 }
 
 static void test_03()
@@ -69,13 +69,14 @@ static void test_03()
 void test_04()
 {
 	Thread_TreeNode* pTree;
+	Thread_TreeNode* parent = NULL;
 	int index = 0;
 	char* data = "ABD##E##CF##G##";
 	Thread_TreeNode* pre = NULL;
 
 
 	// 创建线索二叉树
-	Thread_TreeCreative(&pTree, data, &index);
+	Thread_TreeCreative(&pTree, data, &index, parent);
 	// 线索二叉树——中序遍历
 	InThread_Tree(pTree, &pre);
 
@@ -104,13 +105,14 @@ void test_05()
 {
 	// 先序遍历线索二叉树
 	Thread_TreeNode* pTree;
+	Thread_TreeNode* parent = NULL;
 	int index = 0;
 	char* data = "ABD##E##CF##G##";
 	Thread_TreeNode* pre = NULL;
 
 
 	// 创建线索二叉树
-	Thread_TreeCreative(&pTree, data, &index);
+	Thread_TreeCreative(&pTree, data, &index, parent);
 	// 线索二叉树——先序遍历
 	PreThread_Tree(pTree, &pre);
 
@@ -132,12 +134,45 @@ void test_05()
 
 }
 
+void test_06()
+{
+	// 后序遍历线索二叉树
+	Thread_TreeNode* pTree;
+	Thread_TreeNode* parent = NULL;
+	int index = 0;
+	char* data = "ABD##E##CF##G##";
+	Thread_TreeNode* pre = NULL;
+
+
+	// 创建线索二叉树
+	Thread_TreeCreative(&pTree, data, &index, parent);
+	// 线索二叉树——后序遍历
+	PostThread_Tree(pTree, &pre);
+	//pre->RFlag = 1;
+	//pre->RChild = NULL;
+
+
+	// 后序遍历线索二叉树
+	Thread_TreeNode* cur_post = NULL;
+
+	cur_post = Post_GetFirst(pTree);
+	printf("先序遍历下线索二叉树的头结点（根结点）是：%c\n", cur_post->data);
+
+	printf("先序遍历——线索二叉树：");
+	for (Thread_TreeNode* node = cur_post; node != NULL; node = Post_GetNext(node))
+	{
+		printf("%c->", node->data);
+	}
+	printf("\n");
+}
+
 int main()
 {
-	// test_01();
-	// test_02();
-	// test_03();
-	// test_04();
-	test_05();
+	//test_01();
+	//test_02();
+	//test_03();
+	//test_04();
+	//test_05();
+	test_06();
 	return 0;
 }

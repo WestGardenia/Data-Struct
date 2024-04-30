@@ -38,12 +38,13 @@ struct Thread_TreeNode {
 	char data;
 	Thread_TreeNode* LChild;	// 定义左孩子结点
 	Thread_TreeNode* RChild;	// 定义右孩子节点
+	Thread_TreeNode* Parent;	// 定义双亲结点----后序遍历特有
 	int LFlag;	// 判断左孩子结点指向位置
 	int RFlag;	// 判断右孩子结点指向位置
 
 };
 
-void Thread_TreeCreative(Thread_TreeNode** RootNode, char* data, int* index);	// 创建二叉树
+void Thread_TreeCreative(Thread_TreeNode** RootNode, char* data, int* index, Thread_TreeNode* parent);	// 创建二叉树
 
 void InThread_Tree(Thread_TreeNode* RootNode, Thread_TreeNode** pre);	// 二叉树线索化
 
@@ -62,3 +63,6 @@ Thread_TreeNode* In_GetNext(Thread_TreeNode* RootNode);
 
 void PostThread_Tree(Thread_TreeNode* RootNode, Thread_TreeNode** pre);	// 线索二叉树--后序遍历--左-根-右
 
+Thread_TreeNode* Post_GetFirst(Thread_TreeNode* RootNode);
+
+Thread_TreeNode* Post_GetNext(Thread_TreeNode* RootNode);
