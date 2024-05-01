@@ -24,12 +24,18 @@
     <ClCompile Include="Threaded_BinaryTree.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Binary_SortTree.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Tree.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Threaded_BinaryTree.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Binary_SortTree.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

@@ -127,11 +127,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Binary_SortTree.c" />
     <ClCompile Include="Binary_Tree.c" />
     <ClCompile Include="test.c" />
     <ClCompile Include="Threaded_BinaryTree.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Binary_SortTree.h" />
     <ClInclude Include="Threaded_BinaryTree.h" />
     <ClInclude Include="Tree.h" />
   </ItemGroup>

@@ -1,6 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include"Tree.h"
 #include"Threaded_BinaryTree.h"
+#include"Binary_SortTree.h"
 
 static void test_01()
 {
@@ -66,7 +67,7 @@ static void test_03()
 	printf("非递归遍历——后序遍历成功\n");
 }
 
-void test_04()
+static void test_04()
 {
 	Thread_TreeNode* pTree;
 	Thread_TreeNode* parent = NULL;
@@ -101,7 +102,7 @@ void test_04()
 	printf("\n");
 }
 
-void test_05()
+static void test_05()
 {
 	// 先序遍历线索二叉树
 	Thread_TreeNode* pTree;
@@ -134,7 +135,7 @@ void test_05()
 
 }
 
-void test_06()
+static void test_06()
 {
 	// 后序遍历线索二叉树
 	Thread_TreeNode* pTree;
@@ -166,6 +167,23 @@ void test_06()
 	printf("\n");
 }
 
+static void test_07()
+{
+	BST* RootNode = NULL;
+	int num[6] = { 8,6,10,9,11,23 };
+	for (int i = 0; i < 6; i++)
+	{
+		BST_Insert(&RootNode, num[i]);
+	}
+
+	PreOrder_BST(RootNode);
+	printf("\n");
+
+	BST* Search_Node = BST_Search(RootNode, 11);
+	printf("搜索值为：%d\n", Search_Node->val);
+
+}
+
 int main()
 {
 	//test_01();
@@ -173,6 +191,7 @@ int main()
 	//test_03();
 	//test_04();
 	//test_05();
-	test_06();
+	//test_06();
+	test_07();
 	return 0;
 }
