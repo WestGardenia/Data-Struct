@@ -52,7 +52,7 @@
               "RelativeDocumentMoniker": "Binary_Tree\\Binary_SortTree.h",
               "ToolTip": "E:\\\u8BA1\u7B97\u673A\\\u8003\u7814408\\\u6570\u636E\u7ED3\u6784\\Data-Struct\\Binary_Tree\\Binary_Tree\\Binary_SortTree.h",
               "RelativeToolTip": "Binary_Tree\\Binary_SortTree.h",
-              "ViewState": "AQIAABsAAAAAAAAAAAAAADwAAAAWAAAA",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAALoAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-05-01T05:44:17.849Z",
               "EditorCaption": ""
@@ -67,8 +67,7 @@
               "RelativeToolTip": "Binary_Tree\\Binary_SortTree.c",
               "ViewState": "AQIAAEYAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-05-01T08:10:38.635Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-01T08:10:38.635Z"
             },
             {
               "$type": "Document",
@@ -80,8 +79,7 @@
               "RelativeToolTip": "Binary_Tree\\test.c",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAL8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-04-19T02:06:52.096Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-19T02:06:52.096Z"
             }
           ]
         }
