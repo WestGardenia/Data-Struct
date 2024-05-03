@@ -187,7 +187,19 @@ static void test_07()
 
 static void test_08()
 {
-
+	AVL_Tree* AVL_Node = NULL;
+	int i = 0;
+	int num_1[5] = { 1,2,3,4,5 };
+	int num_2[5] = { 5,4,3,2,1 };
+	int num_3[5] = { 8,7,9,5,6 };
+	int num_4[5] = { 1,8,6,7,10 };
+	printf("AVL(自平衡二叉排序树)的先序遍历结果是:\n");
+	printf("\t");
+	for (i = 0; i < 5; i++)
+	{
+		AVL_Insert(&AVL_Node, num_4[i]);
+	}
+	AVL_PreOrder(AVL_Node);
 }
 
 int main()
@@ -198,6 +210,7 @@ int main()
 	//test_04();
 	//test_05();
 	//test_06();
-	test_07();
+	//test_07();
+	test_08();
 	return 0;
 }

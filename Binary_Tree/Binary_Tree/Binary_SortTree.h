@@ -82,7 +82,7 @@ void PreOrder_BST(BST* RootNode);	// 前序遍历
 // 
 // RR调整手段
 //	RR：取中间节点mid_node，将mid_node的父亲节点作为它的左孩子。
-//		如果mid_node原本就有左孩子，那么将这个左孩子存放到mid_node原本父亲节点的有孩子中去
+//		如果mid_node原本就有左孩子，那么将这个左孩子存放到mid_node原本父亲节点的右孩子中去
 //		如果树和它的一棵子树同时失衡，那么优先处理子树部分。树有递归性质，子树在平衡后，才能保证树的平衡
 // 
 //	1					调整				3					
@@ -186,3 +186,28 @@ void PreOrder_BST(BST* RootNode);	// 前序遍历
 // 由于自平衡二叉排序树有高度差限定，所以结点的结构体中需要加入一个字段表示当前树的高度
 // 确定调整方法
 //
+
+typedef struct AVL_Tree AVL_Tree;
+
+struct AVL_Tree {
+	int val;
+	int height;
+	AVL_Tree* Lchild;
+	AVL_Tree* Rchild;
+	AVL_Tree* parent;
+};
+
+int GetHeight(AVL_Tree* RootNode);	// 取当前结点的高度
+
+void LL_Rotation(AVL_Tree** RootNode, AVL_Tree* node);	// LL调整函数
+
+void RR_Rotation(AVL_Tree** RootNode, AVL_Tree* node);	// RR调整函数
+
+void LR_Rotation(AVL_Tree** RootNode, AVL_Tree* node);	// LR调整函数
+void RL_Rotation(AVL_Tree** RootNode, AVL_Tree* node);	// RL调整函数
+// 本质上，LR就是先进行一次RR调整，再进行一次LL调整
+//		   RR调整则是和LR调整逻辑相反 
+
+void AVL_Insert(AVL_Tree** RootNode, int data);		// 创建AVL树
+
+void AVL_PreOrder(AVL_Tree* RootNode);	// AVL先序遍历
