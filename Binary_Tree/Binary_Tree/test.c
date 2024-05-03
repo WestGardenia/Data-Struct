@@ -3,6 +3,7 @@
 #include"Threaded_BinaryTree.h"
 #include"Binary_SortTree.h"
 #include"B-Tree.h"
+#include"Huffman_Tree.h"
 
 static void test_01()
 {
@@ -202,6 +203,12 @@ static void test_08()
 	AVL_PreOrder(AVL_Node);
 }
 
+static void test_09()
+{
+	int weight[5] = {1,2,3,4,5};
+	Huffman_Tree* HFTree = Huffman_TreeInit(weight, 5);
+}
+
 int main()
 {
 	//test_01();
@@ -211,6 +218,7 @@ int main()
 	//test_05();
 	//test_06();
 	//test_07();
-	test_08();
+	//test_08();
+	test_09();
 	return 0;
 }

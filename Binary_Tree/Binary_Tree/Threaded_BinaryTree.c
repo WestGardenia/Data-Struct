@@ -15,6 +15,11 @@ void Thread_TreeCreative(Thread_TreeNode** RootNode, char* data, int* index,Thre
 	else
 	{
 		*RootNode = (Thread_TreeNode*)malloc(sizeof(Thread_TreeNode));
+		if ((*RootNode) == NULL)
+		{
+			return;
+			exit(-1);
+		}
 		(*RootNode)->data = ch;
 		// 标志位为1时表示Child指针指向左右子树；为1时表示Child指向其前驱或者后继
 		(*RootNode)->LFlag = 0;	

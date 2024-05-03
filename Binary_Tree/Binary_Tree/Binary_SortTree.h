@@ -203,8 +203,8 @@ void LL_Rotation(AVL_Tree** RootNode, AVL_Tree* node);	// LL调整函数
 
 void RR_Rotation(AVL_Tree** RootNode, AVL_Tree* node);	// RR调整函数
 
-void LR_Rotation(AVL_Tree** RootNode, AVL_Tree* node);	// LR调整函数
-void RL_Rotation(AVL_Tree** RootNode, AVL_Tree* node);	// RL调整函数
+//void LR_Rotation(AVL_Tree** RootNode, AVL_Tree* node);	// LR调整函数
+//void RL_Rotation(AVL_Tree** RootNode, AVL_Tree* node);	// RL调整函数
 // 本质上，LR就是先进行一次RR调整，再进行一次LL调整
 //		   RR调整则是和LR调整逻辑相反 
 
