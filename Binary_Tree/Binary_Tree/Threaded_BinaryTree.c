@@ -131,22 +131,22 @@ Thread_TreeNode* In_GetFirst(Thread_TreeNode* RootNode)
 {
 	assert(RootNode);
 	// 循环版本：
-	//while (RootNode->LFlag == 0)
-	//{
-	//	// 在线索二叉树中，从根节点开始遍历。只要子树的根结点的左孩子有前驱，就说明在链表结构中没有遍历到头结点
-	//	// 同时，也需要注意，线索二叉树形成的链表与常规链表不同，我们拥有的第一个索引是树的根结点，但并不一定是链表头节点
+	while (RootNode->LFlag == 0)
+	{
+		// 在线索二叉树中，从根节点开始遍历。只要子树的根结点的左孩子有前驱，就说明在链表结构中没有遍历到头结点
+		// 同时，也需要注意，线索二叉树形成的链表与常规链表不同，我们拥有的第一个索引是树的根结点，但并不一定是链表头节点
 
-	//	// 循环过程中，如果LFlag值为0，则表示该结点有左孩子而无前驱，同时也说明该结点不是叶子节点
-	//	// 反过来，叶子节点的Flag值至少有一个为1（线索二叉树定义）
-	//	RootNode = RootNode->LChild;
-	//}
-	//return RootNode;
+		// 循环过程中，如果LFlag值为0，则表示该结点有左孩子而无前驱，同时也说明该结点不是叶子节点
+		// 反过来，叶子节点的Flag值至少有一个为1（线索二叉树定义）
+		RootNode = RootNode->LChild;
+	}
+	return RootNode;
 	
 	// 迭代版本：
-	if (RootNode->LFlag == 0)
-	{
-		return In_GetFirst(RootNode->LChild);
-	}
+	//if (RootNode->LFlag == 0)
+	//{
+	//	return In_GetFirst(RootNode->LChild);
+	//}
 }
 
 Thread_TreeNode* In_GetNext(Thread_TreeNode* RootNode)

@@ -28,18 +28,22 @@
 
 typedef struct Huffman_Tree Huffman_Tree;
 
-typedef struct TreeNode {
+typedef struct HF_TreeNode {
 	int weight;
 	int parent;
 	int Lchild;
 	int Rchild;
-}TreeNode;
+}HF_TreeNode;
 
 struct Huffman_Tree {
-	TreeNode* data;
+	HF_TreeNode* data;
 	int length;
 };
 
 Huffman_Tree* Huffman_TreeInit(int* weight,int length);	// weight是权值列表（数组），length是长度
 
-void select_minweight(Huffman_Tree* HFTree);	// 选取最小权值的两个结点
+int* select_minweight(Huffman_Tree* HFTree);	// 选取最小权值的两个结点
+
+void createHFTree(Huffman_Tree* HFTree);	// 创建哈夫曼树
+
+void HFT_preOrder(Huffman_Tree* HFTree, int index);	// 哈夫曼树的先序遍历

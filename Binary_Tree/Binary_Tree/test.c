@@ -205,8 +205,16 @@ static void test_08()
 
 static void test_09()
 {
-	int weight[5] = {1,2,3,4,5};
-	Huffman_Tree* HFTree = Huffman_TreeInit(weight, 5);
+	int weight[4] = {1,2,3,4};
+	Huffman_Tree* HFTree = Huffman_TreeInit(weight, 4);
+
+	int* res = select_minweight(HFTree);
+	printf("res[0] = %d\n", res[0]);
+	printf("res[0] = %d\n", res[1]);
+
+	createHFTree(HFTree);
+
+	HFT_preOrder(HFTree,HFTree->length-1);
 }
 
 int main()
