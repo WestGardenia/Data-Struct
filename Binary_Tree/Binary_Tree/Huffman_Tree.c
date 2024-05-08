@@ -78,6 +78,7 @@ void createHFTree(Huffman_Tree* HFTree)	// 创建哈夫曼树
 		secondmin = res[1];
 
 		HFTree->data[i].weight = HFTree->data[min].weight + HFTree->data[secondmin].weight;
+		// 选取最小权值的两个节点进行合并时，需要将合并的结点的parent置0，VS里的编译器并不能自动将其置0，会产生bug
 		HFTree->data[i].parent = 0;
 		HFTree->data[i].Lchild = min;
 		HFTree->data[i].Rchild = secondmin;
