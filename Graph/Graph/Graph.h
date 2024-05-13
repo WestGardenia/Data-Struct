@@ -3,6 +3,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<assert.h>
+#include<stdbool.h>
 
 typedef struct Graph Graph;
 
@@ -38,6 +39,29 @@ void GraphCreate(Graph* MyGraph, char* vexs, int* arcs);	// 创建图
 //	3、回到第一步，并判断这个结点是否被访问过
 //		如果被访问过，那么将另选一个未被访问的结点
 //	4、直到图中所有结点都被访问
+// 
+// 所以本质上是一种类似于树的层次遍历
 //
+void DFS(Graph* G, int* visit, int index);	// 图--深度优先遍历DFS
 
 // BFS--广度优先遍历
+void BFS(Graph* G, int* visit, int index);	// 图--广度优先遍历BFS
+
+typedef struct Queue Queue;
+typedef int NodeType;
+typedef struct Node Node;
+struct Node {
+	NodeType data;
+	Node* next;
+};
+
+struct Queue {
+	Node* front;
+	Node* tail;
+};
+
+Queue* InitQueue();
+void PrintQueue(Queue* Q);
+bool isEmpty(Queue* Q);
+void enQueue(Queue* Q, NodeType val);
+NodeType deQueue(Queue* Q);
