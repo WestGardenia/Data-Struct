@@ -71,7 +71,7 @@ void DFS(Graph* G, int* visit, int index)	// 图--深度优先遍历DFS
 	}
 }
 
-
+// 队列接口函数
 Queue* InitQueue()
 {
 	Queue* Q = (Queue*)malloc(sizeof(Queue));
@@ -159,6 +159,7 @@ NodeType deQueue(Queue** Q)
 		return x;
 	}
 }
+
 
 void BFS(Graph* G, int* visit, int index)	// 图--广度优先遍历BFS
 {

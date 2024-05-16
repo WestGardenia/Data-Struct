@@ -26,9 +26,10 @@ static void test_01()
 	}
 
 	BFS(G, visit, 0);
+	printf("\n");
 }
 
-void test_02()
+static void test_02()
 {
 	Queue* Q = InitQueue();
 	int  ch[5] = { 1,2,3,4,5 };
@@ -38,12 +39,37 @@ void test_02()
 	}
 	PrintQueue(Q);
 	printf("\n");
-	int test_QueueTail = deQueue(Q);
+	int test_QueueTail = deQueue(&Q);
 	printf("%d ", test_QueueTail);
+}
+
+static void test_03()
+{
+	MST_Graph* MG = MST_Graph_Init(6);
+	int arc[6][6] = {
+		0,6,1,5,MAX,MAX,
+		6,0,5,MAX,3,MAX,
+		1,5,0,5,6,4,
+		5,MAX,5,0,MAX,2,
+		MAX,3,6,MAX,0,6,
+		MAX,MAX,4,2,6,0
+	};
+	MST_Graph_Creative(MG, "123456", (int*)arc);
+
+	int* visit = (int*)malloc(sizeof(int) * MG->vexNum);
+	for (int i = 0; i < MG->vexNum; i++)
+	{
+		visit[i] = 0;
+	}
+	MST_DFS(MG, visit, 0);
+	printf("\n");
+
+	Prim_MST(MG, 0);	// 最小生成树--普利姆算法
 }
 
 int main()
 {
-	test_01();
+	//test_01();
 	//test_02();
+	test_03();
 }

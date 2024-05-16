@@ -128,6 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Graph.c" />
+    <ClCompile Include="Minimun_Cost_Spanning_Tree.c" />
     <ClCompile Include="test.c" />
   </ItemGroup>
   <ItemGroup>
