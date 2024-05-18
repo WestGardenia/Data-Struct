@@ -119,3 +119,5 @@ Edge* Edge_Init(MST_Graph* MG, int index);	// 初始化边
 int getMinEdge(Edge* edge, MST_Graph* MG);
 
 void Prim_MST(MST_Graph* MG, int index);	// 最小生成树--普利姆算法
+
+void Kruskal_MST(MST_Graph* MG, int index);	// 最小生成树--库鲁斯卡尔算法

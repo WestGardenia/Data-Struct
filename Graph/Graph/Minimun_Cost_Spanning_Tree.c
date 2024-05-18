@@ -77,7 +77,7 @@ int getMinEdge(Edge* edge, MST_Graph* MG)
 
 void Prim_MST(MST_Graph* MG, int index)	// 最小生成树--普利姆算法
 {
-	int min = MAX;
+	int min = MAX; 
 	Edge* edge = Edge_Init(MG,index);
 	for (int i = 0; i < MG->vexNum - 1; i++)
 	{

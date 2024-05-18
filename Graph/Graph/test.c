@@ -61,7 +61,7 @@ static void test_03()
 	{
 		visit[i] = 0;
 	}
-	MST_DFS(MG, visit, 0);
+	MST_DFS(MG, visit, 5);
 	printf("\n");
 
 	Prim_MST(MG, 0);	// 最小生成树--普利姆算法
