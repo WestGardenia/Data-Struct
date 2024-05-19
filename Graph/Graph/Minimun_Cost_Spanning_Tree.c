@@ -1,15 +1,30 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include"Graph.h"
 
+void Is_NULL(void* ptr)
+{
+	if (ptr == NULL)
+	{
+		return;
+		exit(-1);
+	}
+}
+
 MST_Graph* MST_Graph_Init(int vexNum)	// 图--初始化
 {
 	MST_Graph* MG = (MST_Graph*)malloc(sizeof(MST_Graph));
 	MG->vexs = (char*)malloc(sizeof(char)*vexNum);
+	Is_NULL((MST_Graph*)MG);
 	MG->arcs = (int**)malloc(sizeof(int*) * vexNum);	// 初始化邻接矩阵的行数组
 
 	for (int i = 0; i < vexNum; i++)
 	{
 		MG->arcs[i] = (int*)malloc(sizeof(int) * vexNum);	// 初始化邻接矩阵每一行的元素
+		if (MG->arcs[i] == NULL)
+		{
+			return NULL;
+			exit(-1);
+		}
 	}
 	MG->vexNum = vexNum;
 	MG->arcNum = 0;
@@ -93,4 +108,122 @@ void Prim_MST(MST_Graph* MG, int index)	// 最小生成树--普利姆算法
 			}
 		}
 	}
+}
+
+
+K_MST* K_MST_Init(int vexNum)
+{
+	K_MST* K_MG = (K_MST*)malloc(sizeof(K_MST));
+	K_MG->vexNum = vexNum;
+	K_MG->vexs = (char*)malloc(sizeof(char) * vexNum);
+
+	K_MG->arcs = (int**)malloc(sizeof(int*) * vexNum);
+
+	for (int i = 0; i < vexNum; i++)
+	{
+		K_MG->arcs[i] = (int*)malloc(sizeof(int) * vexNum);
+	}
+	K_MG->arcNum = 0;
+
+	return K_MG;
+}
+
+void K_MST_Creative(K_MST* K_MG, char* vex, int* arc)
+{
+	for (int i = 0; i < K_MG->vexNum; i++)
+	{
+		K_MG->vexs[i] = vex[i];
+		for (int j = 0; j < K_MG->vexNum; j++)
+		{
+			K_MG->arcs[i][j] = arc[i * K_MG->vexNum + j];
+			if (K_MG->arcs[i][j] != 0 && K_MG->arcs[i][j] != MAX)
+			{
+				K_MG->arcNum++;
+			}
+		}
+	}
+	K_MG->arcNum /= 2;
+}
+
+void K_MST_DFS(K_MST* K_MG, int index, int* visit)
+{
+	printf("%c ", K_MG->vexs[index]);
+	visit[index] = 1;
+
+	for (int i = 0; i < K_MG->vexNum; i++)
+	{
+		if (K_MG->arcs[index][i] != 0 && K_MG->arcs[index][i] != MAX && visit[i] != 1)
+		{
+			K_MST_DFS(K_MG, i, visit);
+		}
+	}
+}
+
+K_Edge* K_Edge_Init(K_MST* K_MG)
+{
+	int index = 0;
+	K_Edge* K_edge = (K_Edge*)malloc(sizeof(K_Edge) * K_MG->arcNum);
+	for (int i = 0; i < K_MG->vexNum; i++)
+	{
+		for (int j = i + 1; j < K_MG->vexNum; j++)
+		{
+			if (K_MG->arcs[i][j] != 0 && K_MG->arcs[i][j] != MAX)
+			{
+				K_edge[index].start = i;
+				K_edge[index].end = j;
+				K_edge[index].weight = K_MG->arcs[i][j];
+				index++;
+			}
+		}
+	}
+	return K_edge;
+}
+
+void K_Edge_Sort(K_Edge* edge, K_MST* K_MG)
+{
+	K_Edge temp;
+	for (int i = 0; i < K_MG->vexNum-1; i++)
+	{
+		for (int j = 0; j < K_MG->vexNum -i-1; j++)
+		{
+			if (edge[j].weight > edge[j + 1].weight)
+			{
+				temp = edge[j];
+				edge[j] = edge[j + 1];
+				edge[j + 1] = temp;
+			}
+		}
+	}
+}
+
+void kruskal(K_MST* K_MG)
+{
+	int* connect = (int*)malloc(sizeof(int) * K_MG->vexNum);
+	for (int i = 0; i < K_MG->vexNum; i++)
+	{
+		connect[i] = i;
+	}
+	K_Edge* edge = K_Edge_Init(K_MG);
+	K_Edge_Sort(edge,K_MG);
+	for (int i = 0; i < K_MG->vexNum; i++)
+	{
+		int start = connect[edge[i].start];
+		int end = connect[edge[i].end];
+		if (start != end)
+		{
+			printf("v%c --> v%c weight = %d\n", K_MG->vexs[edge[i].start], K_MG->vexs[edge[i].end], edge[i].weight);
+			for (int j = 0; j < K_MG->vexNum; j++)
+			{
+				if (connect[j] == end)
+				{
+					connect[j] = start;
+				}
+			}
+		}
+	}
+}
+
+void Kruskal_MST(MST_Graph* MG, int index)		// 最小生成树--克鲁斯卡尔算法
+{
+
 }

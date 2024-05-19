@@ -120,4 +120,41 @@ int getMinEdge(Edge* edge, MST_Graph* MG);
 
 void Prim_MST(MST_Graph* MG, int index);	// 最小生成树--普利姆算法
 
-void Kruskal_MST(MST_Graph* MG, int index);	// 最小生成树--库鲁斯卡尔算法
+typedef struct K_MST K_MST;
+
+struct K_MST {
+	char* vexs;
+	int** arcs;
+	int vexNum;
+	int arcNum;
+};
+
+
+K_MST* K_MST_Init(int vexNum);
+void K_MST_Creative(K_MST* K_MG, char* vex, int* arc);
+void K_MST_DFS(K_MST* K_MG, int index, int* visit);
+
+typedef struct K_Edge K_Edge;
+
+struct K_Edge {
+	int start;
+	int end;
+	int weight;
+};
+
+K_Edge* K_Edge_Init(K_MST* K_MG);
+
+void K_Edge_Sort(K_Edge* edge, K_MST* K_MG);
+
+void kruskal(K_MST* K_MG);	// 最小生成树--克鲁斯卡尔算法
+
+// 克鲁斯卡尔算法
+// 1、对边排序
+// 2、选边--确保选出来的边相连不会得到回路
+// 
+// 需要维护一个边的数组，并对其中的边进行排序
+// 判断图是否连通（生成树中是否有回路）：
+//		需要一个辅助数组，去记录当前索引的结点所属于哪个连通分量
+// 
+// 
+// 
