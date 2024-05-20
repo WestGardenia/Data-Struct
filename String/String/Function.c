@@ -63,7 +63,7 @@ void StringPrint(String* s)	// ¥Æ--¥Ú”°
 void StringForceMatch(String* master, String* sub)	// ¥Æ--±©¡¶∆•≈‰
 {
 	assert(master && sub);
-	int i = 0;
+	int i = 0; 
 	int j = 0;
 	while (i < master->length && j < sub->length)
 	{

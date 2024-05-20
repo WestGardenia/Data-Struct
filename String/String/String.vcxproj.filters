@@ -18,12 +18,18 @@
     <ClInclude Include="String.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="My_String.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Function.c">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="String_Test.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="My_String_Function.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
