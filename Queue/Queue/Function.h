@@ -28,7 +28,7 @@ struct Queue
 
 
 
-void QueueInit(Queue* pq);	// 队列的定义
+void QueueInit(Queue* pq);	// 队列的初始化
 
 void QueueDestroy(Queue* pq);	// 队列的销毁
 

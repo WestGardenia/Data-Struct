@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include"Function.h"
 
-void QueueInit(Queue* pq)	// 队列的定义
+void QueueInit(Queue* pq)	// 队列的初始化
 {
 	assert(pq);
 	pq->head = NULL;
