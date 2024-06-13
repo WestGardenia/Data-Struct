@@ -18,13 +18,20 @@ typedef struct TreeNode TreeNode;
 struct TreeNode {
 	TreeNode* lchild;
 	TreeNode* rchild;
+	int ltag;
+	int rtag;	// 左右标志位：用于判断左右孩子指针是指向前驱后继（tag == 1）还是左右孩子（tag == 0）
 	char data;
 };
 
 // 二叉树先、中、后序遍历
 void Create_BinaryTree(TreeNode** RootNode,char* val,int* index);
+
+bool Tree_IsEmpty(TreeNode* RootNode);
+
 void PreOrder(TreeNode* RootNode);
+
 void InOrder(TreeNode* RootNode);
+
 void PostOrder(TreeNode* RootNode);
 
 // 二叉树层序遍历
@@ -60,3 +67,8 @@ void Queue_Destroy(Queue* Q);
 void QueueNode_Destroy(QueueNode* pQ);
 
 void BinaryTree_LevelOrder(TreeNode* T);
+
+// 二叉树线索化
+void InOrder_Thread(TreeNode* T, TreeNode** pre);	// 中序线索化
+void PreOrder_Thread(TreeNode* T, TreeNode** pre);	// 先序线索化
+void PostOrder_Thread(TreeNode* T, TreeNode** pre);	// 后序线索化
