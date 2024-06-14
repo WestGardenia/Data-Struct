@@ -3,20 +3,16 @@
   "WorkspaceRootPath": "E:\\\u8BA1\u7B97\u673A\\\u8003\u7814408\\\u6570\u636E\u7ED3\u6784\\Data-Struct\\Binary_Tree\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{0A89301F-107C-4E83-9157-A32D9A0903C3}|Binary_Tree\\Binary_Tree.vcxproj|E:\\\u8BA1\u7B97\u673A\\\u8003\u7814408\\\u6570\u636E\u7ED3\u6784\\Data-Struct\\Binary_Tree\\Binary_Tree\\test.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0A89301F-107C-4E83-9157-A32D9A0903C3}|Binary_Tree\\Binary_Tree.vcxproj|solutionrelative:Binary_Tree\\test.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{0A89301F-107C-4E83-9157-A32D9A0903C3}|Binary_Tree\\Binary_Tree.vcxproj|E:\\\u8BA1\u7B97\u673A\\\u8003\u7814408\\\u6570\u636E\u7ED3\u6784\\Data-Struct\\Binary_Tree\\Binary_Tree\\Threaded_BinaryTree.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{0A89301F-107C-4E83-9157-A32D9A0903C3}|Binary_Tree\\Binary_Tree.vcxproj|solutionrelative:Binary_Tree\\Threaded_BinaryTree.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0A89301F-107C-4E83-9157-A32D9A0903C3}|Binary_Tree\\Binary_Tree.vcxproj|E:\\\u8BA1\u7B97\u673A\\\u8003\u7814408\\\u6570\u636E\u7ED3\u6784\\Data-Struct\\Binary_Tree\\Binary_Tree\\Binary_Tree.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{0A89301F-107C-4E83-9157-A32D9A0903C3}|Binary_Tree\\Binary_Tree.vcxproj|solutionrelative:Binary_Tree\\Binary_Tree.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0A89301F-107C-4E83-9157-A32D9A0903C3}|Binary_Tree\\Binary_Tree.vcxproj|E:\\\u8BA1\u7B97\u673A\\\u8003\u7814408\\\u6570\u636E\u7ED3\u6784\\Data-Struct\\Binary_Tree\\Binary_Tree\\Tree.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{0A89301F-107C-4E83-9157-A32D9A0903C3}|Binary_Tree\\Binary_Tree.vcxproj|solutionrelative:Binary_Tree\\Tree.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0A89301F-107C-4E83-9157-A32D9A0903C3}|Binary_Tree\\Binary_Tree.vcxproj|E:\\\u8BA1\u7B97\u673A\\\u8003\u7814408\\\u6570\u636E\u7ED3\u6784\\Data-Struct\\Binary_Tree\\Binary_Tree\\test.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{0A89301F-107C-4E83-9157-A32D9A0903C3}|Binary_Tree\\Binary_Tree.vcxproj|solutionrelative:Binary_Tree\\test.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{0A89301F-107C-4E83-9157-A32D9A0903C3}|Binary_Tree\\Binary_Tree.vcxproj|E:\\\u8BA1\u7B97\u673A\\\u8003\u7814408\\\u6570\u636E\u7ED3\u6784\\Data-Struct\\Binary_Tree\\Binary_Tree\\Threaded_BinaryTree.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0A89301F-107C-4E83-9157-A32D9A0903C3}|Binary_Tree\\Binary_Tree.vcxproj|solutionrelative:Binary_Tree\\Threaded_BinaryTree.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 329,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,52 +54,42 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "Threaded_BinaryTree.h",
+              "DocumentMoniker": "E:\\\u8BA1\u7B97\u673A\\\u8003\u7814408\\\u6570\u636E\u7ED3\u6784\\Data-Struct\\Binary_Tree\\Binary_Tree\\Threaded_BinaryTree.h",
+              "RelativeDocumentMoniker": "Binary_Tree\\Threaded_BinaryTree.h",
+              "ToolTip": "E:\\\u8BA1\u7B97\u673A\\\u8003\u7814408\\\u6570\u636E\u7ED3\u6784\\Data-Struct\\Binary_Tree\\Binary_Tree\\Threaded_BinaryTree.h",
+              "RelativeToolTip": "Binary_Tree\\Threaded_BinaryTree.h",
+              "ViewState": "AQIAACQAAAAAAAAAAAAAADkAAABHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-06-14T14:11:33.89Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Threaded_BinaryTree.c",
               "DocumentMoniker": "E:\\\u8BA1\u7B97\u673A\\\u8003\u7814408\\\u6570\u636E\u7ED3\u6784\\Data-Struct\\Binary_Tree\\Binary_Tree\\Threaded_BinaryTree.c",
               "RelativeDocumentMoniker": "Binary_Tree\\Threaded_BinaryTree.c",
               "ToolTip": "E:\\\u8BA1\u7B97\u673A\\\u8003\u7814408\\\u6570\u636E\u7ED3\u6784\\Data-Struct\\Binary_Tree\\Binary_Tree\\Threaded_BinaryTree.c",
               "RelativeToolTip": "Binary_Tree\\Threaded_BinaryTree.c",
-              "ViewState": "AQIAACcAAAAAAAAAAAAAADkAAAAnAAAA",
+              "ViewState": "AQIAAGMAAAAAAAAAAAAAAHMAAAADAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2024-06-13T09:23:14.803Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Tree.h",
-              "DocumentMoniker": "E:\\\u8BA1\u7B97\u673A\\\u8003\u7814408\\\u6570\u636E\u7ED3\u6784\\Data-Struct\\Binary_Tree\\Binary_Tree\\Tree.h",
-              "RelativeDocumentMoniker": "Binary_Tree\\Tree.h",
-              "ToolTip": "E:\\\u8BA1\u7B97\u673A\\\u8003\u7814408\\\u6570\u636E\u7ED3\u6784\\Data-Struct\\Binary_Tree\\Binary_Tree\\Tree.h",
-              "RelativeToolTip": "Binary_Tree\\Tree.h",
-              "ViewState": "AQIAAC0AAAAAAAAAAADwvzsAAAASAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-06-04T08:02:31.858Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Binary_Tree.c",
-              "DocumentMoniker": "E:\\\u8BA1\u7B97\u673A\\\u8003\u7814408\\\u6570\u636E\u7ED3\u6784\\Data-Struct\\Binary_Tree\\Binary_Tree\\Binary_Tree.c",
-              "RelativeDocumentMoniker": "Binary_Tree\\Binary_Tree.c",
-              "ToolTip": "E:\\\u8BA1\u7B97\u673A\\\u8003\u7814408\\\u6570\u636E\u7ED3\u6784\\Data-Struct\\Binary_Tree\\Binary_Tree\\Binary_Tree.c",
-              "RelativeToolTip": "Binary_Tree\\Binary_Tree.c",
-              "ViewState": "AQIAAJ8AAAAAAAAAAAAAACUBAAAhAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-06-04T04:08:57.241Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "test.c",
               "DocumentMoniker": "E:\\\u8BA1\u7B97\u673A\\\u8003\u7814408\\\u6570\u636E\u7ED3\u6784\\Data-Struct\\Binary_Tree\\Binary_Tree\\test.c",
               "RelativeDocumentMoniker": "Binary_Tree\\test.c",
-              "ToolTip": "E:\\\u8BA1\u7B97\u673A\\\u8003\u7814408\\\u6570\u636E\u7ED3\u6784\\Data-Struct\\Binary_Tree\\Binary_Tree\\test.c",
-              "RelativeToolTip": "Binary_Tree\\test.c",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
+              "ToolTip": "E:\\\u8BA1\u7B97\u673A\\\u8003\u7814408\\\u6570\u636E\u7ED3\u6784\\Data-Struct\\Binary_Tree\\Binary_Tree\\test.c*",
+              "RelativeToolTip": "Binary_Tree\\test.c*",
+              "ViewState": "AQIAAGgAAAAAAAAAAAAAAOUAAAADAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-04-19T02:06:52.096Z"
+              "WhenOpened": "2024-04-19T02:06:52.096Z",
+              "EditorCaption": ""
             }
           ]
         }
