@@ -21,9 +21,15 @@
     <ClCompile Include="BinaryTree_Function.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Huffman_Tree.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Tree_Function.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Huffman_Tree_Function.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

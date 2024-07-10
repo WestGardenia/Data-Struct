@@ -1,6 +1,8 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 #include"Tree_Function.h"
+#include"Huffman_Tree_Function.h"
+
 
 // 先、中、后序遍历测试代码
 static void test_01()	
@@ -116,6 +118,36 @@ static void test_05()
 	PostOrder_ThreadTree_Rev(RootNode_post);
 }
 
+// 哈夫曼树编码与译码测试用例
+#define N 4
+static void test_06()
+{
+	int weight[N] = { 5, 4, 3, 1 };
+	int sum = N;
+	//printf("请输入%d个权值: ", sum);
+	//for (int i = 0; i < N; i++)
+	//{
+	//	scanf("%d", &weight[i]);
+	//}
+	//printf("输入的权值数组是：");
+	//for (int i = 0; i < N; i++)
+	//{
+	//	printf("%d ", weight[i]);
+	//}
+
+	//Sort(weight, N);
+	//printf("升序排序后的权值数组是：");
+	for (int i = 0; i < N; i++)
+	{
+		printf("%d ", weight[i]);
+	}
+	printf("\n");
+
+	Huffman_Tree* HT = Huffman_TreeInit(weight, N);
+	HT = Huffman_Treecreative(HT);
+	Huffman_Tree_pre(HT, HT->length - 1);
+
+}
 
 
 int main()
@@ -124,6 +156,7 @@ int main()
 	//test_02();
 	//test_03();
 	//test_04();
-	test_05();
+	//test_05();
+	test_06();
 	return 0;
 }
