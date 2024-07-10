@@ -93,3 +93,10 @@ void PreOrder_ThreadTree_Rev(TreeNode* T);	// 线索化先序逆遍历
 
 
 void PostOrder_Thread(TreeNode* T, TreeNode** pre);	// 后序线索化
+TreeNode* First_PostOrder(TreeNode* T);	// 寻找后序线索的第一个节点
+TreeNode* Next_PostOrder(TreeNode* T);	// 寻找后序线索的后继节点
+TreeNode* Last_PostOrder(TreeNode* T);	// 寻找后序线索的最后一个结点
+TreeNode* Pre_PostOrder(TreeNode* T);		// 寻找后序线索的前驱节点
+
+void PostOrder_ThreadTree(TreeNode* T);	// 线索化后序遍历
+void PostOrder_ThreadTree_Rev(TreeNode* T);	// 线索化后序逆遍历

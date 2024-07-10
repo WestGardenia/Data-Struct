@@ -92,6 +92,7 @@ static void test_04()
 
 static void test_05()
 {
+	// d e b f g c a
 	TreeNode* RootNode_post = NULL;
 	TreeNode* parent = NULL;
 	char* val_post = "abd##e##cf##g##";
@@ -101,6 +102,18 @@ static void test_05()
 	TreeNode* pre_post = NULL;
 	PostOrder_Thread(RootNode_post, &pre_post);
 	printf("\n");
+
+	printf("寻找后序线索二叉树的首个节点：%c \n", First_PostOrder(RootNode_post)->data);
+	printf("寻找后序线索二叉树的尾部节点：%c \n", Last_PostOrder(RootNode_post)->data);
+
+
+	printf("后序线索二叉树遍历测试：");
+	PostOrder_ThreadTree(RootNode_post);
+
+	printf("\n");
+
+	printf("后序线索二叉树逆遍历测试：");
+	PostOrder_ThreadTree_Rev(RootNode_post);
 }
 
 
@@ -110,7 +123,7 @@ int main()
 	//test_01();
 	//test_02();
 	//test_03();
-	test_04();
-	Test_InOrder_Threading();
+	//test_04();
+	test_05();
 	return 0;
 }

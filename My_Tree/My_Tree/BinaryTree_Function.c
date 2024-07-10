@@ -389,3 +389,83 @@ void PostOrder_Thread(TreeNode* T, TreeNode** pre)	// 后序线索化
 		*pre = T;
 	}
 }
+
+TreeNode* First_PostOrder(TreeNode* T)		// 寻找后序线索的第一个节点
+{
+	if (T->ltag == 1)
+		return T;
+	else
+		First_PostOrder(T->lchild);
+}
+
+TreeNode* Last_PostOrder(TreeNode* T)	// 寻找后序线索的最后一个结点
+{
+	if (T)
+		return T;
+}
+
+TreeNode* Next_PostOrder(TreeNode* T)	// 寻找后序线索的后继节点
+{
+	if (T->parent)
+	{
+		// T为非根结点
+		if (T->rtag == 1)
+		{
+			// 叶子节点
+			return T->rchild;
+		}
+		else if ((T->parent->lchild == T) && (T->parent->ltag == 0) && (T->parent->rtag == 0))
+		{
+			// T为某一个根节点的左孩子结点且不是叶子节点，并且其根结点的左右孩子都存在
+			return First_PostOrder(T->parent->rchild);
+		}
+		else if ((T->parent->lchild == T) && (T->parent->rtag == 1) || (T->parent->rchild == T))
+		{
+			// 1.T为某一个根结点的右孩子节点且不是叶子节点
+			// 2.T为某一个根结点的左孩子结点且不是叶子节点，并且其根结点没有右孩子结点
+			return T->parent;
+		}
+	}
+	else
+		return NULL;
+}
+
+
+TreeNode* Pre_PostOrder(TreeNode* T)		// 寻找后序线索的前驱节点
+{
+	if (T)
+	{
+		if (T->ltag == 1)
+		{
+			// T 没有左孩子结点 
+			return T->lchild;
+		}
+		else if (T->rtag == 0)
+		{
+			// T的有右孩子节点且不是线索节点
+			return T->rchild;
+		}
+		else if (T->rtag == 1 && T->ltag == 0)
+		{
+			// T没有右孩子但有左孩子
+			return T->lchild;
+		}
+	}
+}
+
+
+void PostOrder_ThreadTree(TreeNode* T)		// 线索化后序遍历
+{
+	for (TreeNode* p = First_PostOrder(T); p != NULL; p = Next_PostOrder(p))
+	{
+		printf("%c-> ", p->data);
+	}
+}
+
+void PostOrder_ThreadTree_Rev(TreeNode* T)		// 线索化后序逆遍历
+{
+	for (TreeNode* p = Last_PostOrder(T); p != NULL; p = Pre_PostOrder(p))
+	{
+		printf("%c-> ", p->data);
+	}
+}
