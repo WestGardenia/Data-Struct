@@ -128,10 +128,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BinaryTree_Function.c" />
+    <ClCompile Include="Disjoint-set.c" />
     <ClCompile Include="Huffman_Tree.c" />
     <ClCompile Include="Tree_test.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Disjoint-set.h" />
     <ClInclude Include="Huffman_Tree_Function.h" />
     <ClInclude Include="Tree_Function.h" />
   </ItemGroup>

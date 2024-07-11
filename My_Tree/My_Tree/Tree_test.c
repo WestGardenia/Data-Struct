@@ -122,14 +122,14 @@ static void test_05()
 #define N 4
 static void test_06()
 {
-	int weight[N] = { 5, 4, 3, 1 };
+	int weight[N] = { 0 };
 	int sum = N;
-	//printf("请输入%d个权值: ", sum);
-	//for (int i = 0; i < N; i++)
-	//{
-	//	scanf("%d", &weight[i]);
-	//}
-	//printf("输入的权值数组是：");
+	printf("请输入%d个权值: ", sum);
+	for (int i = 0; i < N; i++)
+	{
+		scanf("%d", &weight[i]);
+	}
+	printf("输入的权值数组是：");
 	//for (int i = 0; i < N; i++)
 	//{
 	//	printf("%d ", weight[i]);
@@ -145,7 +145,14 @@ static void test_06()
 
 	Huffman_Tree* HT = Huffman_TreeInit(weight, N);
 	HT = Huffman_Treecreative(HT);
+	printf("Huffman_Tree先序遍历结果：");
 	Huffman_Tree_pre(HT, HT->length - 1);
+
+}
+
+// 并查集测试用例
+static void test_07()
+{
 
 }
 
@@ -158,5 +165,6 @@ int main()
 	//test_04();
 	//test_05();
 	test_06();
+	test_07();
 	return 0;
 }
