@@ -3,14 +3,23 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<assert.h>
+#include<stdbool.h>
 
-#define MAX_Vnum 100
+#define MAX INT_MAX
+// 如果图中的某两个顶点不连通，则路径长度为MAX
 
-typedef struct Graph_Adjacent_Matrix Graph_Adjacent_Matrix;
+// 邻接矩阵法表示图
+typedef struct Graph_Adjacent_Matrix Graph_01;	
+
+// 邻接表法
+
+// 十字链表法表示有向图
+
+// 多重链表法表示无向图
 
 struct Graph_Adjacent_Matrix {
-	char vex[MAX_Vnum];
-	int edge[MAX_Vnum][MAX_Vnum];
+	char* vex;
+	int** edge;
 	int vex_num;
 	int edge_num;
 };
@@ -20,4 +29,50 @@ struct Graph_Adjacent_Matrix {
 // A*A 的逻辑意义是得到的矩阵中a[i][j]代表一个路径数量：从顶点集中的顶点vex[i]到vex[j]的路径长度为2的个数
 // A*A*A*A*A……（n个A矩阵相乘）则是对应顶点之间路径长度为n的路径个数
 
+
+// BFS 广度优先遍历辅助队列接口函数
+typedef struct QueueNode QueueNode;
+typedef int QueueNode_Type;
+
+struct QueueNode {
+	QueueNode* next;
+	QueueNode_Type data;
+};
+
+typedef struct Queue Queue;
+
+struct Queue {
+	QueueNode* head;
+	QueueNode* tail;
+};
+
+Queue* Queue_Init();
+QueueNode* QueueNode_Init(int T);
+bool Queue_IsEmpty(Queue* Q);
+void Queue_PushTail(Queue* Q, QueueNode* pQ);
+void Queue_PopHead(Queue* Q);
+QueueNode_Type Get_QueueHead(Queue* Q);
+void Queue_Destroy(Queue* Q);
+void QueueNode_Destroy(QueueNode* pQ);
+
+// 邻接矩阵——接口函数
+Graph_01* Graph_Init(int vex_num);	// 图的初始化
+
+Graph_01* Graph_Create(Graph_01* G, int* edge, char* vex);	// 图的创建
+
+void DFS(Graph_01* G, int* visit, int index);	// DFS--深度优先遍历
+
+void BFS(Graph_01* G, int* visit, int index);	// BFS--广度优先遍历
+
+// 定义新的结构体用于维护Prim算法中找到某个顶点中的最小权值的路径
+typedef struct Edge {
+	char vex;
+	int weight;
+}Edge;
+
+Edge* Edge_Init(Graph_01* G, int index);	// 初始化
+
+int Get_MinEdge(Edge* edge, Graph_01* G);	// 在起点对应边的集合中，寻找最小边
+
+void Prim_MST(Graph_01* G, int index);		// 最小生成树---Prim算法
 
