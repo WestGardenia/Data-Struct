@@ -26,7 +26,7 @@ Graph_01* Graph_Create(Graph_01* G, int* edge, char* vex)	// 创建图
 		for (int j = 0; j < G->vex_num; j++)
 		{
 			G->edge[i][j] = *(edge + i * G->vex_num + j);
-			if (G->edge[i][j] != 0)
+			if (G->edge[i][j] != 0 && G->edge[i][j] != MAX)
 			{
 				G->edge_num++;
 			}
@@ -217,4 +217,79 @@ void Prim_MST(Graph_01* G, int index)		// 最小生成树---Prim算法
 			}
 		}
 	}
+}
+
+// Kruskal算法
+K_Edge* initK_Edge(Graph_01* G)
+{
+	K_Edge* edge = (K_Edge*)malloc(sizeof(K_Edge) * (G->edge_num));
+	int index = 0;
+	for (int i = 0; i < G->vex_num; i++)
+	{
+		for (int j = i+1; j < G->vex_num; j++)
+		{
+			if(G->edge[i][j] != MAX)
+			{
+				edge[index].start = i;
+				edge[index].end = j;
+				edge[index].weight = G->edge[i][j];
+				index++;
+			}
+		}
+	}
+	return edge;
+}
+
+void sortK_Edge(Graph_01* G, K_Edge* edge)
+{
+	K_Edge temp;
+	for (int i = 0; i < G->edge_num-1; i++)
+	{
+		for (int j = 0; j < G->edge_num - i - 1; j++)
+		{
+			if (edge[j].weight > edge[j + 1].weight)
+			{
+				temp = edge[j];
+				edge[j] = edge[j + 1];
+				edge[j + 1] = temp;
+			}
+		}
+	}
+}
+
+void Kruskal_MST(Graph_01* G)
+{
+	// 1.创建连通分量数组，用于表示每个顶点之间是否连通
+	//		如果联通，则两顶点会有相同的连通分量，2其值为起点的连通分量
+	//		初始状态下，每个顶点的连通分量就是顶点自身的编号
+	int* connect = (int*)malloc(sizeof(int) * G->vex_num);
+	for (int i = 0; i < G->vex_num; i++)
+	{
+		connect[i] = i;
+	}
+
+	K_Edge* edge = initK_Edge(G);
+	sortK_Edge(G, edge);
+	// 2.遍历经过排序后的K_Edge数组，从最小边开始不断加入最小生成树
+	for(int i = 0;i<G->edge_num;i++)
+	{
+		// 循环从小到大找边
+		int start = connect[edge[i].start];
+		int end = connect[edge[i].end];
+		// 取找到的边的起点和终点的联通分量
+		if (start != end)
+		{
+			// 如果连通分量不相等，那么就将终点连通分量的值变为起点的，并将其加入到最小生成树之中
+			printf("v%c -> v%c, weight = %d\n", G->vex[edge[i].start], G->vex[edge[i].end], edge[i].weight);
+			for (int j = 0; j < G->vex_num; j++)
+			{
+				// 遍历连通分量数组，找到当前边所指向的终点对应的连通分量的位置，并将其置为起点的连通分量值
+				if (connect[j] == end)
+				{
+					connect[j] = start;
+				}
+			}
+		}
+	}
+
 }

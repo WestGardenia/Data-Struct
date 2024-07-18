@@ -66,11 +66,23 @@ void test_02()
 		MAX,3,6,MAX,0,6,
 		MAX,MAX,4,2,6,0
 	};
-	Graph_Create(G, (int*)arr_01,"123456");
+	Graph_Create(G, (int*)arr_01,"123456");  
+	int* visit = (int*)malloc(sizeof(int) * G->vex_num);	// 顶点访问标记集合
+	for (int i = 0; i < G->vex_num; i++)
+	{
+		// 初始化标记集合
+		visit[i] = 0;
+	}
+	int num = 0;
+	printf("图的以'%d'为起点深度优先遍历结果示例：\n", num);
+	DFS(G, visit, num);
+	printf("\n");
 
-	printf("Prim算法测试用例：\n");
-	Prim_MST(G, 0);
+	printf("Prim算法以'%d'为起点测试用例：\n", num);
+	Prim_MST(G, num);
 
+	printf("\nKruskal算法测试用例：\n");
+	Kruskal_MST(G);
 }
 
 int main()

@@ -69,7 +69,7 @@ Edge* Edge_Init(MST_Graph* MG, int index)	// 初始化边
 	Edge* edge = (Edge*)malloc(sizeof(Edge) * MG->vexNum);
 	for (int i = 0; i < MG->vexNum; i++)
 	{
-		edge[i].vex = MG->vexs[i];
+		edge[i].vex = MG->vexs[index];
 		edge[i].weight = MG->arcs[index][i];
 	}
 	return edge;
@@ -184,7 +184,7 @@ void K_Edge_Sort(K_Edge* edge, K_MST* K_MG)
 	K_Edge temp;
 	for (int i = 0; i < K_MG->vexNum-1; i++)
 	{
-		for (int j = 0; j < K_MG->vexNum -i-1; j++)
+		for (int j = 0; j < K_MG->vexNum -i - 1; j++)
 		{
 			if (edge[j].weight > edge[j + 1].weight)
 			{
@@ -221,9 +221,4 @@ void kruskal(K_MST* K_MG)
 			}
 		}
 	}
-}
-
-void Kruskal_MST(MST_Graph* MG, int index)		// 最小生成树--克鲁斯卡尔算法
-{
-
 }
