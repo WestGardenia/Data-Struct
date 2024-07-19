@@ -293,3 +293,76 @@ void Kruskal_MST(Graph_01* G)
 	}
 
 }
+
+
+D_arr* initD_arr(Graph_01* G, int index)
+{
+	D_arr* arr = (D_arr*)malloc(sizeof(D_arr) * G->vex_num);
+	for (int i = 0; i < G->vex_num; i++)
+	{
+		// 目标点等于起点时
+		if (i == index)
+		{
+			arr[i].judge = 1;
+			arr[i].path = 0;
+			arr[i].prev = -1;
+		}
+		// 目标点与起点之间存在有效边时
+		if (G->edge[index][i] > 0 && G->edge[index][i] < MAX)
+		{
+			arr[i].judge = 0;
+			arr[i].path = G->edge[index][i];
+			arr[i].prev = index;
+		}
+		// 目标点与起点之间不直接相连时
+		if (G->edge[index][i] == MAX)
+		{
+			arr[i].judge = 0;
+			arr[i].path = MAX;
+			arr[i].prev = -1;
+		}
+	}
+	return arr;
+}
+
+int min_path(D_arr* arr, Graph_01* G)
+{
+	int index = 0;
+	int min = MAX;
+	for (int i = 0; i < G->vex_num; i++)
+	{
+		if (!arr[i].judge && arr[i].path < min)
+		{
+			// 找到未确认最小路径的最小值
+			index = i;
+			min = arr[i].path;
+		}
+	}
+	return index;
+}
+
+void Dijkstra(Graph_01* G, int index)
+{
+	D_arr* arr = initD_arr(G, index);
+	for (int i = 0; i < G->vex_num - 1; i++)
+	{
+		int min_index = min_path(arr, G);
+		arr[min_index].judge = 1;
+		for (int j = 0; j < G->vex_num; j++)
+		{
+			if (!arr[j].judge && G->edge[min_index][j] != MAX && arr[min_index].path + G->edge[min_index][j] < arr[j].path)
+			{
+				// G->edge[min_index][j] != MAX
+				// 判断条件要确保原始边集中，存在起点min_index到终点j的边，否则MAX+MAX会超出int类型表示范围而展示出一个负值
+				// 这种情况显然并不符合需求但是却能够满足判断条件。
+				arr[j].path = arr[min_index].path + G->edge[min_index][j];
+				arr[j].prev = min_index;
+			}
+		}
+	}
+	printf("是否有最小路径\t最小路径的前驱\t最小路径权值\n");
+	for (int i = 0; i < G->vex_num; i++)
+	{
+		printf("%d\t\t%d\t\t%d\n", arr[i].judge, arr[i].prev, arr[i].path);
+	}
+}

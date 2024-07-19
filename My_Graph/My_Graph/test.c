@@ -54,7 +54,8 @@ static void test_01()
 
 // 最小生成树测试用例
 // Prim算法
-void test_02()
+// Kruskal算法
+static void test_02()
 {
 	printf("2.图----求最小生成树测试用例：\n");
 	Graph_01* G = Graph_Init(6);
@@ -85,9 +86,41 @@ void test_02()
 	Kruskal_MST(G);
 }
 
+// 最短路径测试用例
+static void test_03()
+{
+	printf("3.图----计算最短路径算法测试用例：\n");
+	Graph_01* G = Graph_Init(7);
+	int arr_01[7][7] = {
+		0,12,MAX,MAX,MAX,16,14,
+		12,0,10,MAX,MAX,7,MAX,
+		MAX,10,0,3,5,6,MAX,
+		MAX,MAX,3,0,4,MAX,MAX,
+		MAX,MAX,5,4,0,2,8,
+		16,7,6,MAX,2,0,9,
+		14,MAX,MAX,MAX,8,9,0
+	};
+	Graph_Create(G, (int*)arr_01, "123456");
+	printf("Dijkstra算法数组示例：\n");
+	printf("计算前：\n");
+
+	D_arr* arr =  initD_arr(G, 0);
+	printf("是否有最小路径\t最小路径的前驱\t最小路径权值\n");
+	for(int i = 0;i<G->vex_num;i++)
+	{
+		printf("%d\t\t%d\t\t%d\n", arr[i].judge, arr[i].prev, arr[i].path);
+	}
+	printf("\n");
+	printf("计算后：\n");
+	Dijkstra(G, 0);
+
+}
+
 int main()
 {
-	test_01();
-	test_02();
+	//test_01();
+	//test_02();
+	test_03();
+
 	return 0;
 }

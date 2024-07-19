@@ -64,7 +64,7 @@ void DFS(Graph_01* G, int* visit, int index);	// DFS--深度优先遍历
 
 void BFS(Graph_01* G, int* visit, int index);	// BFS--广度优先遍历
 
-
+// Prim算法
 // 定义新的结构体用于维护Prim算法中找到某个顶点中的最小权值的路径
 typedef struct Edge {
 	char vex;
@@ -78,6 +78,7 @@ int Get_MinEdge(Edge* edge, Graph_01* G);	// 在起点对应边的集合中，寻找最小边
 void Prim_MST(Graph_01* G, int index);		// 最小生成树---Prim算法
 
 
+// Kruskal算法
 // 定义新的结构体用于维护Kruskal算法中找到的每一个边
 typedef struct K_Edge {
 	int start;
@@ -91,3 +92,18 @@ K_Edge* initK_Edge(Graph_01* G);
 void sortK_Edge(Graph_01* G, K_Edge* edge);
 
 void Kruskal_MST(Graph_01* G);
+
+
+// Dijkstra算法
+//
+typedef struct D_arr {
+	int judge;	// 判断是否得到了最短路径
+	int path;	// 挑选出当前最短路径的值
+	int prev;	// 选取当前最短路径下，通向终点的边的起点
+}D_arr;
+
+D_arr* initD_arr(Graph_01* G, int index);
+
+int min_path(D_arr* arr, Graph_01* G);
+
+void Dijkstra(Graph_01* G, int index);
