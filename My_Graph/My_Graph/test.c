@@ -114,6 +114,8 @@ static void test_03()
 	printf("º∆À„∫Û£∫\n");
 	Dijkstra(G, 0);
 
+	Floyd(G);
+
 }
 
 int main()

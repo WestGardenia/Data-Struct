@@ -5,7 +5,7 @@
 #include<assert.h>
 #include<stdbool.h>
 
-#define MAX INT_MAX
+#define MAX SHRT_MAX
 // 如果图中的某两个顶点不连通，则路径长度为MAX
 
 // 邻接矩阵法表示图
@@ -107,3 +107,8 @@ D_arr* initD_arr(Graph_01* G, int index);
 int min_path(D_arr* arr, Graph_01* G);
 
 void Dijkstra(Graph_01* G, int index);
+
+
+// Floyd算法
+
+void Floyd(Graph_01* G);

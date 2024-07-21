@@ -366,3 +366,77 @@ void Dijkstra(Graph_01* G, int index)
 		printf("%d\t\t%d\t\t%d\n", arr[i].judge, arr[i].prev, arr[i].path);
 	}
 }
+
+
+void Floyd(Graph_01* G)
+{
+	int x = 0;
+	int path[7][7];
+	int prev[7][7];
+	for (int i = 0; i < G->vex_num; i++)
+	{
+		for (int j = 0; j < G->vex_num; j++)
+		{
+			path[i][j] = G->edge[i][j];
+			if (G->edge[i][j] > 0 && G->edge[i][j] != MAX)
+				prev[i][j] = i;
+			else
+				prev[i][j] = -1;
+		}
+	}
+
+	printf("Floyd算法初始化path数组：\n");
+	for (int i = 0; i < G->vex_num; i++)
+	{
+		for (int j = 0; j < G->vex_num; j++)
+		{
+			printf("%d\t", path[i][j]);
+		}
+		printf("\n");
+	}
+	printf("\n");
+	printf("Floyd算法初始化prev数组：\n");
+	for (int i = 0; i < G->vex_num; i++)
+	{
+		for (int j = 0; j < G->vex_num; j++)
+		{
+			printf("%d\t", prev[i][j]);
+		}
+		printf("\n");
+	}
+
+	for (int i = 0; i < G->vex_num; i++)
+	{
+		for (int j = 0; j < G->vex_num; j++)
+		{
+			for (int k = 0; k < G->vex_num; k++)
+			{
+				if (path[j][k] > path[j][i] + path[i][k])
+				{
+					path[j][k] = path[j][i] + path[i][k];
+					prev[j][k] = path[i][k];
+				}
+			}
+		}
+	}
+	printf("\n");
+	printf("Floyd算法结束后path数组：\n");
+	for (int i = 0; i < G->vex_num; i++)
+	{
+		for (int j = 0; j < G->vex_num; j++)
+		{
+			printf("%d\t", path[i][j]);
+		}
+		printf("\n");
+	}
+	printf("\n");
+	printf("Floyd算法结束后prev数组：\n");
+	for (int i = 0; i < G->vex_num; i++)
+	{
+		for (int j = 0; j < G->vex_num; j++)
+		{
+			printf("%d\t", prev[i][j]);
+		}
+		printf("\n");
+	}
+}
