@@ -115,14 +115,43 @@ static void test_03()
 	Dijkstra(G, 0);
 
 	Floyd(G);
+}
 
+// 拓扑排序测试用例
+void test_04()
+{
+	printf("4.图----拓扑排序测试用例：\n");
+	Graph_01* G = Graph_Init(6);
+	int arr_01[6][6] = {
+		0,1,1,1,0,0,
+		0,0,0,0,0,0,
+		0,1,0,0,1,0,
+		0,0,0,0,1,0,
+		0,0,0,0,0,0,
+		0,0,0,1,1,0
+	};
+	Graph_Create(G, (int*)arr_01, "123456");
+	int* visit = (int*)malloc(sizeof(int) * G->vex_num);	// 顶点访问标记集合
+	for (int i = 0; i < G->vex_num; i++)
+	{
+		// 初始化标记集合
+		visit[i] = 0;
+	}
+	int num = 0;
+	printf("图的以'%d'为起点深度优先遍历结果示例：\n", num);
+	DFS(G, visit, num);
+
+	printf("\n");
+	printf("图的拓扑排序结果示例：\n");
+	toposort(G);
 }
 
 int main()
 {
 	//test_01();
 	//test_02();
-	test_03();
+	//test_03();
+	test_04();
 
 	return 0;
 }

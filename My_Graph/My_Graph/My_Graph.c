@@ -294,7 +294,7 @@ void Kruskal_MST(Graph_01* G)
 
 }
 
-
+// Dijkstra算法
 D_arr* initD_arr(Graph_01* G, int index)
 {
 	D_arr* arr = (D_arr*)malloc(sizeof(D_arr) * G->vex_num);
@@ -438,5 +438,129 @@ void Floyd(Graph_01* G)
 			printf("%d\t", prev[i][j]);
 		}
 		printf("\n");
+	}
+}
+
+
+// 拓扑排序算法
+
+stack* Init_Stack()
+{
+	stacknode* snode = (stacknode*)malloc(sizeof(stacknode));
+	snode->data = 0;
+	snode->next = NULL;
+
+	stack* Stack = (stack*)malloc(sizeof(stack));
+	Stack->top = snode;
+	Stack->node_num = 0;
+
+	return Stack;
+}
+
+int PopStack(stack* S)
+{
+	if (Stack_Isempty(S))
+	{
+		return -1;
+	}
+	else
+	{
+		stacknode* newnode = S->top->next;
+		S->top->next = newnode->next;
+		S->node_num--;
+		return newnode->data;
+	}
+}
+
+void PushStack(stack* S, int data)
+{
+	stacknode* node = (stacknode*)malloc(sizeof(stacknode));
+	if(!Stack_Isempty(S))
+	{
+		node->data = data;
+		node->next = S->top->next;
+		S->top->next = node;
+	}
+	else
+	{
+		node->data = data;
+		node->next = NULL;
+		S->top->next = node;
+	}
+	S->node_num++;
+}
+
+int Stack_Isempty(stack* S)
+{
+	if (!S->node_num)
+		return 1;
+	else
+		return 0;
+}
+
+int* Find_Indegrees(Graph_01* G)
+{
+	int* InDegree = (int*)malloc(sizeof(int) * G->vex_num);
+	for (int i = 0; i < G->vex_num; i++)
+	{
+		InDegree[i] = 0;
+	}
+
+	for (int i = 0; i < G->vex_num; i++)
+	{
+		for (int j = 0; j < G->vex_num; j++)
+		{
+			if (G->edge[i][j] == 1)
+			{
+				InDegree[j]++;
+			}
+		}
+	}
+
+	return InDegree;
+}
+
+void toposort(Graph_01* G)
+{
+	int* InDegree = Find_Indegrees(G);
+	int* SortOut = (int*)malloc(sizeof(int) * G->vex_num);
+	int index = 0;
+	stack* S = Init_Stack();
+	for (int i = 0; i < G->vex_num; i++)
+	{
+		SortOut[i] = 0;
+	}
+
+	for (int i = 0; i < G->vex_num; i++)
+	{
+		// 将所有入度为0的顶点的下标压栈
+		if (InDegree[i] == 0)
+		{
+			PushStack(S, i);
+		}
+	}
+
+	while (!Stack_Isempty(S))
+	{
+		int vex = PopStack(S);	// 将入度为0的顶点的下标出栈，并赋给SortOut数组
+		SortOut[index++] = vex;	// 按照从前到后入度变0的顺序，将相应顶点的下标依次存放到SortOut数组中
+		for (int i = 0; i < G->vex_num; i++)
+		{
+			// 此时以vex只能作为边的起点（没有入度）
+			// 判断这样的边有多少，执行一次自减1
+			if (G->edge[vex][i])
+			{
+				InDegree[i]--;
+				if (InDegree[i] == 0)
+				{
+					// 如果下标为i的顶点检查并自减完成之后，入度为0则再次压栈
+					PushStack(S, i);
+				}
+			}
+		}
+	}
+	for (int i = 0; i < G->vex_num; i++)
+	{
+		printf("%c ", G->vex[SortOut[i]]);
 	}
 }

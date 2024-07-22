@@ -112,3 +112,31 @@ void Dijkstra(Graph_01* G, int index);
 // FloydÀ„∑®
 
 void Floyd(Graph_01* G);
+
+
+// Õÿ∆À≈≈–ÚÀ„∑®
+
+typedef struct stack stack;
+typedef struct stacknode stacknode;
+
+struct stack {
+	stacknode* top;
+	int node_num;
+};
+
+struct stacknode {
+	int data;
+	stacknode* next;
+};
+
+stack* Init_Stack();
+
+void PushStack(stack* S, int data);
+
+int PopStack(stack* S);
+
+int Stack_Isempty(stack* S);
+
+int* Find_Indegrees(Graph_01* G);
+
+void toposort(Graph_01* G);
