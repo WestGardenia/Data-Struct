@@ -44,8 +44,6 @@ G_Node Find_RootNode_Optimize(Gather* G, G_Node* element)	// ²éÕÒ²¢²é¼¯ÖĞµÄ¸ù½áµ
 		G->array[x].parent = root;
 		x = t;
 	}
-
-
 	return G->array[x];
 }
 

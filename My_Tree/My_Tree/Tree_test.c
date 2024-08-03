@@ -119,7 +119,7 @@ static void test_05()
 }
 
 // ¹ş·òÂüÊ÷±àÂëÓëÒëÂë²âÊÔÓÃÀı
-#define N 4
+#define N 6
 static void test_06()
 {
 	int weight[N] = { 0 };

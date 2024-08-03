@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "E:\\\u8BA1\u7B97\u673A\\\u8003\u7814408\\\u6570\u636E\u7ED3\u6784\\Data-Struct\\My_Tree\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{CB68405E-226D-46FE-B373-01924DCCE975}|My_Tree\\My_Tree.vcxproj|E:\\\u8BA1\u7B97\u673A\\\u8003\u7814408\\\u6570\u636E\u7ED3\u6784\\Data-Struct\\My_Tree\\My_Tree\\BinaryTree_Function.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CB68405E-226D-46FE-B373-01924DCCE975}|My_Tree\\My_Tree.vcxproj|solutionrelative:My_Tree\\BinaryTree_Function.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CB68405E-226D-46FE-B373-01924DCCE975}|My_Tree\\My_Tree.vcxproj|E:\\\u8BA1\u7B97\u673A\\\u8003\u7814408\\\u6570\u636E\u7ED3\u6784\\Data-Struct\\My_Tree\\My_Tree\\Tree_Function.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{CB68405E-226D-46FE-B373-01924DCCE975}|My_Tree\\My_Tree.vcxproj|solutionrelative:My_Tree\\Tree_Function.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CB68405E-226D-46FE-B373-01924DCCE975}|My_Tree\\My_Tree.vcxproj|E:\\\u8BA1\u7B97\u673A\\\u8003\u7814408\\\u6570\u636E\u7ED3\u6784\\Data-Struct\\My_Tree\\My_Tree\\Tree_test.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{CB68405E-226D-46FE-B373-01924DCCE975}|My_Tree\\My_Tree.vcxproj|solutionrelative:My_Tree\\Tree_test.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CB68405E-226D-46FE-B373-01924DCCE975}|My_Tree\\My_Tree.vcxproj|E:\\\u8BA1\u7B97\u673A\\\u8003\u7814408\\\u6570\u636E\u7ED3\u6784\\Data-Struct\\My_Tree\\My_Tree\\Huffman_Tree.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{CB68405E-226D-46FE-B373-01924DCCE975}|My_Tree\\My_Tree.vcxproj|solutionrelative:My_Tree\\Huffman_Tree.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{CB68405E-226D-46FE-B373-01924DCCE975}|My_Tree\\My_Tree.vcxproj|E:\\\u8BA1\u7B97\u673A\\\u8003\u7814408\\\u6570\u636E\u7ED3\u6784\\Data-Struct\\My_Tree\\My_Tree\\Disjoint-set.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{CB68405E-226D-46FE-B373-01924DCCE975}|My_Tree\\My_Tree.vcxproj|solutionrelative:My_Tree\\Disjoint-set.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB68405E-226D-46FE-B373-01924DCCE975}|My_Tree\\My_Tree.vcxproj|E:\\\u8BA1\u7B97\u673A\\\u8003\u7814408\\\u6570\u636E\u7ED3\u6784\\Data-Struct\\My_Tree\\My_Tree\\Tree_test.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CB68405E-226D-46FE-B373-01924DCCE975}|My_Tree\\My_Tree.vcxproj|solutionrelative:My_Tree\\Tree_test.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CB68405E-226D-46FE-B373-01924DCCE975}|My_Tree\\My_Tree.vcxproj|E:\\\u8BA1\u7B97\u673A\\\u8003\u7814408\\\u6570\u636E\u7ED3\u6784\\Data-Struct\\My_Tree\\My_Tree\\Disjoint-set.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -63,25 +63,38 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "BinaryTree_Function.c",
+              "DocumentMoniker": "E:\\\u8BA1\u7B97\u673A\\\u8003\u7814408\\\u6570\u636E\u7ED3\u6784\\Data-Struct\\My_Tree\\My_Tree\\BinaryTree_Function.c",
+              "RelativeDocumentMoniker": "My_Tree\\BinaryTree_Function.c",
+              "ToolTip": "E:\\\u8BA1\u7B97\u673A\\\u8003\u7814408\\\u6570\u636E\u7ED3\u6784\\Data-Struct\\My_Tree\\My_Tree\\BinaryTree_Function.c",
+              "RelativeToolTip": "My_Tree\\BinaryTree_Function.c",
+              "ViewState": "AQIAADAAAAAAAAAAAAAAACoAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-08-03T12:13:27.437Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Tree_Function.h",
               "DocumentMoniker": "E:\\\u8BA1\u7B97\u673A\\\u8003\u7814408\\\u6570\u636E\u7ED3\u6784\\Data-Struct\\My_Tree\\My_Tree\\Tree_Function.h",
               "RelativeDocumentMoniker": "My_Tree\\Tree_Function.h",
               "ToolTip": "E:\\\u8BA1\u7B97\u673A\\\u8003\u7814408\\\u6570\u636E\u7ED3\u6784\\Data-Struct\\My_Tree\\My_Tree\\Tree_Function.h",
               "RelativeToolTip": "My_Tree\\Tree_Function.h",
-              "ViewState": "AQIAADAAAAAAAAAAAADwv0EAAAAZAAAA",
+              "ViewState": "AQIAACQAAAAAAAAAAAAAAGQAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-07-17T08:41:34.289Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Disjoint-set.h",
               "DocumentMoniker": "E:\\\u8BA1\u7B97\u673A\\\u8003\u7814408\\\u6570\u636E\u7ED3\u6784\\Data-Struct\\My_Tree\\My_Tree\\Disjoint-set.h",
               "RelativeDocumentMoniker": "My_Tree\\Disjoint-set.h",
               "ToolTip": "E:\\\u8BA1\u7B97\u673A\\\u8003\u7814408\\\u6570\u636E\u7ED3\u6784\\Data-Struct\\My_Tree\\My_Tree\\Disjoint-set.h",
               "RelativeToolTip": "My_Tree\\Disjoint-set.h",
-              "ViewState": "AQIAAA8AAAAAAAAAAADwvyEAAAAQAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAA/AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-07-11T01:22:37.245Z",
               "EditorCaption": ""
@@ -94,33 +107,19 @@
               "RelativeDocumentMoniker": "My_Tree\\Disjoint-set.c",
               "ToolTip": "E:\\\u8BA1\u7B97\u673A\\\u8003\u7814408\\\u6570\u636E\u7ED3\u6784\\Data-Struct\\My_Tree\\My_Tree\\Disjoint-set.c",
               "RelativeToolTip": "My_Tree\\Disjoint-set.c",
-              "ViewState": "AQIAADAAAAAAAAAAAAAAACwAAAAEAAAA",
+              "ViewState": "AQIAADAAAAAAAAAAAAAAAEYAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-07-11T01:22:08.633Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-11T01:22:08.633Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Huffman_Tree.c",
-              "DocumentMoniker": "E:\\\u8BA1\u7B97\u673A\\\u8003\u7814408\\\u6570\u636E\u7ED3\u6784\\Data-Struct\\My_Tree\\My_Tree\\Huffman_Tree.c",
-              "RelativeDocumentMoniker": "My_Tree\\Huffman_Tree.c",
-              "ToolTip": "E:\\\u8BA1\u7B97\u673A\\\u8003\u7814408\\\u6570\u636E\u7ED3\u6784\\Data-Struct\\My_Tree\\My_Tree\\Huffman_Tree.c",
-              "RelativeToolTip": "My_Tree\\Huffman_Tree.c",
-              "ViewState": "AQIAAAAAAAAAAAAAAADwvwAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-07-11T01:52:54.406Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Tree_test.c",
               "DocumentMoniker": "E:\\\u8BA1\u7B97\u673A\\\u8003\u7814408\\\u6570\u636E\u7ED3\u6784\\Data-Struct\\My_Tree\\My_Tree\\Tree_test.c",
               "RelativeDocumentMoniker": "My_Tree\\Tree_test.c",
               "ToolTip": "E:\\\u8BA1\u7B97\u673A\\\u8003\u7814408\\\u6570\u636E\u7ED3\u6784\\Data-Struct\\My_Tree\\My_Tree\\Tree_test.c",
               "RelativeToolTip": "My_Tree\\Tree_test.c",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAJsAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAJ4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2024-06-04T03:19:45.706Z",
               "EditorCaption": ""
