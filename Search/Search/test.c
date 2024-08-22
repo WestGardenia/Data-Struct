@@ -1,10 +1,13 @@
 #define _CRT_SECURE_NO_WARNINGS
 
+
+
 #include"BST_Function.h"
 #include"AVL_Tree.h"
 #include"Red_Black_Tree.h"
+#include"Hash_Table.h"
 // ¶ş²æÅÅĞòÊ÷ BST ²âÊÔÓÃÀı
-void test_01()
+static void test_01()
 {
 	BST* T = NULL;
 	int arr[6] = { 4,5,3,74,1,87 };
@@ -23,7 +26,7 @@ void test_01()
 }
 
 // ¶ş²æÆ½ºâÊ÷ AVL ²âÊÔÓÃÀı
-void test_02()
+static void test_02()
 {
 	AVLnode* T = NULL;
 	printf("Æ½ºâ¶ş²æÊ÷²âÊÔÓÃÀı\n");
@@ -39,17 +42,24 @@ void test_02()
 	printf("\n");
 	printf("ÏÈĞò±éÀúµÄ½á¹ûÊÇ£º\n");
 	AVL_Tree_PreOrder(T);
+	printf("\n");
 }
 
-// ºìºÚÊ÷ RBT ²âÊÔÓÃÀı
+// ¹şÏ£±í Hash ²âÊÔÓÃÀı
 void test_03()
 {
-
+	Hash* H = Hash_Init();
+	put(H, 'A');
+	put(H, 'F');
+	printf("¹şÏ£±í²âÊÔÓÃÀı£º\n");
+	printf("¹şÏ£±íµÚÒ»¸öÔªËØÖµ£º%c\n", H->data[0]);
+	printf("¹şÏ£±íµÚ¶ş¸öÔªËØÖµ£º%c\n", H->data[1]);
 }
 
 int main()
 {
 	//test_01();
 	test_02();
+	test_03();
 	return 0;
 }

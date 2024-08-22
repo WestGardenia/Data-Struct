@@ -24,6 +24,9 @@
     <ClInclude Include="Red_Black_Tree.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Hash_Table.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="test.c">
@@ -36,6 +39,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Red_Black_Tree.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Hash_Table.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

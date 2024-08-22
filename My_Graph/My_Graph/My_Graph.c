@@ -346,8 +346,8 @@ void Dijkstra(Graph_01* G, int index)
 	D_arr* arr = initD_arr(G, index);
 	for (int i = 0; i < G->vex_num - 1; i++)
 	{
-		int min_index = min_path(arr, G);
-		arr[min_index].judge = 1;
+		int min_index = min_path(arr, G);	// 将找到的最短路径的下标，也就是目标节点编号返回
+		arr[min_index].judge = 1;			// 将其标志位置为1，表示最短路径已经找到
 		for (int j = 0; j < G->vex_num; j++)
 		{
 			if (!arr[j].judge && G->edge[min_index][j] != MAX && arr[min_index].path + G->edge[min_index][j] < arr[j].path)

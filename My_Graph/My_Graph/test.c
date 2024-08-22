@@ -114,11 +114,12 @@ static void test_03()
 	printf("¼ÆËãºó£º\n");
 	Dijkstra(G, 0);
 
-	Floyd(G);
+	// FloydËã·¨²âÊÔÓÃÀı
+	// Floyd(G);
 }
 
 // ÍØÆËÅÅĞò²âÊÔÓÃÀı
-void test_04()
+static void test_04()
 {
 	printf("4.Í¼----ÍØÆËÅÅĞò²âÊÔÓÃÀı£º\n");
 	Graph_01* G = Graph_Init(6);
@@ -150,8 +151,8 @@ int main()
 {
 	//test_01();
 	//test_02();
-	//test_03();
-	test_04();
+	test_03();
+	//test_04();
 
 	return 0;
 }

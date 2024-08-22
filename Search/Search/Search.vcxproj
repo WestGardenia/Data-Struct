@@ -129,11 +129,13 @@
   <ItemGroup>
     <ClInclude Include="AVL_Tree.h" />
     <ClInclude Include="BST_Function.h" />
+    <ClInclude Include="Hash_Table.h" />
     <ClInclude Include="Red_Black_Tree.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AVL_Tree.c" />
     <ClCompile Include="BST.c" />
+    <ClCompile Include="Hash_Table.c" />
     <ClCompile Include="Red_Black_Tree.c" />
     <ClCompile Include="test.c" />
   </ItemGroup>

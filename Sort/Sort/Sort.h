@@ -12,3 +12,9 @@ void PrintArray(int* arr, int length);
 int Partition(int* arr, int front, int behind);	// 寻找下标为front的数据的正确相对位置，并将正确位置的下标返回，以便后续使用
 
 void Quick_Sort(int* arr, int front, int behind);	// 快速排序函数主体
+
+void Insert_Sort(int* arr, int length);	// 插入排序
+
+void Shell_Sort(int* arr, int length, int step);	// 希尔排序
+
+void Print_Sort(int* arr, int length);	// 打印函数
