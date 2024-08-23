@@ -27,6 +27,9 @@
     <ClCompile Include="Disjoint-set.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="heap.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Tree_Function.h">
@@ -36,6 +39,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Disjoint-set.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="heap.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

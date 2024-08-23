@@ -90,6 +90,7 @@ void Destroy_BinaryTree(TreeNode* node) {
 }
 
 // 层序遍历
+// 辅助队列
 Queue* Queue_Init()
 {
 	Queue* Q = (Queue*)malloc(sizeof(Queue));
@@ -184,6 +185,7 @@ void Queue_Destroy(Queue* Q)
 	free(Q);
 }
 
+// 层次遍历函数
 void BinaryTree_LevelOrder(TreeNode* T)
 {
 	Queue* Q = Queue_Init();
@@ -212,6 +214,7 @@ void BinaryTree_LevelOrder(TreeNode* T)
 
 
 // 线索二叉树
+// 中序
 void InOrder_Thread(TreeNode* T, TreeNode** pre)	// 中序线索化
 {
 	if (T != NULL)
@@ -279,8 +282,7 @@ void InOrder_ThreadTree_Rev(TreeNode* T)	// 线索化中序逆遍历
 		printf("%c -> ", p->data);
 }
 
-
-
+// 先序
 void PreOrder_Thread(TreeNode* T, TreeNode** pre)	// 先序线索化
 {
 	if (T != NULL)
@@ -326,7 +328,6 @@ TreeNode* Next_PreOrder(TreeNode* T)	// 寻找先序线索的后继节点
 	}
 }
 
-
 TreeNode* Last_PreOrder(TreeNode* T)	// 寻找先序线索的最后一个结点
 {
 	while ((T->rtag == 0) && (T->rchild))
@@ -364,7 +365,7 @@ void PreOrder_ThreadTree_Rev(TreeNode* T)	// 线索化先序逆遍历
 		printf("%c -> ", p->data);
 }
 
-
+// 后序
 void PostOrder_Thread(TreeNode* T, TreeNode** pre)	// 后序线索化
 {
 	if (T != NULL)
@@ -430,7 +431,6 @@ TreeNode* Next_PostOrder(TreeNode* T)	// 寻找后序线索的后继节点
 		return NULL;
 }
 
-
 TreeNode* Pre_PostOrder(TreeNode* T)		// 寻找后序线索的前驱节点
 {
 	if (T)
@@ -452,7 +452,6 @@ TreeNode* Pre_PostOrder(TreeNode* T)		// 寻找后序线索的前驱节点
 		}
 	}
 }
-
 
 void PostOrder_ThreadTree(TreeNode* T)		// 线索化后序遍历
 {

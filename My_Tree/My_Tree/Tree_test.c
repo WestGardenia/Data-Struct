@@ -2,6 +2,7 @@
 
 #include"Tree_Function.h"
 #include"Huffman_Tree_Function.h"
+#include"heap.h"
 
 
 // 先、中、后序遍历测试代码
@@ -156,7 +157,32 @@ static void test_07()
 
 }
 
+// 堆--测试用例
+static void test_08()
+{
+	int a[] = { 27,15,19,18,28,34,65,49,25,37 };
+	heap hp;
+	heap hp_01;
+	Heap_Init(&hp, a, (sizeof(a) / sizeof(int)));
 
+	printf("初始堆的遍历序列：\n");
+	Heap_Print(&hp);
+
+	Heap_Sort(&hp, (sizeof(a) / sizeof(int)));
+
+	printf("\n进行的小堆排序的测试用例：\n");
+	Heap_Print(&hp);
+
+	Heap_Init(&hp_01, a, (sizeof(a) / sizeof(int)));
+
+	Heap_Push(&hp_01, 13);
+	printf("\n堆--插入数据测试用例：\n");
+	Heap_Print(&hp_01);
+
+	Heap_Pop(&hp_01);
+	printf("\n堆--删除数据测试用例\n");
+	Heap_Print(&hp_01);
+}
 int main()
 {
 	//test_01();
@@ -164,7 +190,8 @@ int main()
 	//test_03();
 	//test_04();
 	//test_05();
-	test_06();
-	test_07();
+	//test_06();
+	//test_07();
+	test_08();
 	return 0;
 }
