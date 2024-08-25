@@ -1,2 +1,5 @@
-﻿  Tree_test.c
-  My_Tree.vcxproj -> E:\计算机\考研408\数据结构\Data-Struct\My_Tree\x64\Debug\My_Tree.exe
+﻿  Leetcode_OJ.c
+  Tree_test.c
+E:\计算机\考研408\数据结构\Data-Struct\My_Tree\My_Tree\Huffman_Tree_Function.h(8,8): error C2011: “Huffman_Tree_Node”:“struct”类型重定义
+  正在生成代码...
+E:\计算机\考研408\数据结构\Data-Struct\My_Tree\My_Tree\Huffman_Tree_Function.h(17,8): error C2011: “Huffman_Tree”:“struct”类型重定义

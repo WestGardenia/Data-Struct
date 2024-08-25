@@ -3,6 +3,7 @@
 #include"Tree_Function.h"
 #include"Huffman_Tree_Function.h"
 #include"heap.h"
+#include"Leetcode_OJ.h"
 
 
 // 先、中、后序遍历测试代码
@@ -20,6 +21,10 @@ static void test_01()
 	printf("\n");
 	PostOrder(RootNode);
 	printf("\n");
+
+	printf("结点计算：%d\n",Tree_size(RootNode));
+
+	printf("深度计算：%d\n", Tree_depth(RootNode));
 }
 
 // 层次遍历测试代码
@@ -185,13 +190,13 @@ static void test_08()
 }
 int main()
 {
-	//test_01();
+	test_01();
 	//test_02();
 	//test_03();
 	//test_04();
 	//test_05();
 	//test_06();
 	//test_07();
-	test_08();
+	//test_08();
 	return 0;
 }

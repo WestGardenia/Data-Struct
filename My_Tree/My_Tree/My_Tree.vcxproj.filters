@@ -30,6 +30,9 @@
     <ClCompile Include="heap.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Leetcode_OJ.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Tree_Function.h">
@@ -42,6 +45,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="heap.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Leetcode_OJ.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

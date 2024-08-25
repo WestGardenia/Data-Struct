@@ -133,3 +133,56 @@ void Heap_Pop(heap* php)
 	php->size--;
 	AdjustDown(php->arr, php->size, 0);
 }
+
+
+void AdjustDowm_01(int* arr, int k, int root)
+{
+	int parent = root;
+	int child = parent * 2 + 1;
+
+	while (child < k)
+	{
+		if (child + 1 < k && arr[child] < arr[child + 1])
+		{
+			child++;
+		}
+		if (arr[child] > arr[parent])
+		{
+			int tmp = arr[child];
+			arr[child] = arr[parent];
+			arr[parent] = tmp;
+
+			parent = child;
+			child = parent * 2 + 1;
+
+		}
+		else
+			break;
+	}
+}
+
+int* smallestK(int* arr, int arrSize, int k, int* returnSize) {
+	if (k == 0)
+		return NULL;
+	int* retArr = (int*)malloc(sizeof(int) * k);
+	*returnSize = k;
+	for (int i = 0; i < k; i++)
+	{
+		retArr[i] = arr[i];
+	}
+
+	for (int i = (k - 1 - 1) / 2; i >= 0; i--)
+	{
+		AdjustDowm_01(retArr, k, i);
+	}
+
+	for (int n = k; n < arrSize; n++)
+	{
+		if (arr[n] < retArr[0])
+		{
+			retArr[0] = arr[n];
+			AdjustDowm_01(retArr, k, 0);
+		}
+	}
+	return retArr;
+}
