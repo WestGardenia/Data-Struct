@@ -188,6 +188,22 @@ static void test_08()
 	printf("\n堆--删除数据测试用例\n");
 	Heap_Print(&hp_01);
 }
+
+// 接口函数测试用例
+static void test_09()
+{
+	TreeNode* RootNode = NULL;
+	TreeNode* parent = NULL;
+	char* val = "abd##e##cf##g##";
+	int index = 0;
+	Create_BinaryTree(&RootNode, val, &index, parent);
+	int k = 3;
+	printf("第%d层结点个数：%d",k,Tree_Ksize(RootNode, k));
+
+
+	Destory_Tree(RootNode);
+}
+
 int main()
 {
 	test_01();
@@ -198,5 +214,6 @@ int main()
 	//test_06();
 	//test_07();
 	//test_08();
+	test_09();
 	return 0;
 }
