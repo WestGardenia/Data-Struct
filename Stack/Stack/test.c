@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include"Function.h"
 
-void test01()
+static void test01()
 {
 	SK st;
 	StackInit(&st);
@@ -22,7 +22,7 @@ void test01()
 }
 
 
-void test02()
+static void test02()
 {
 	SK st;
 	StackInit(&st);
