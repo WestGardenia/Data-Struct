@@ -7,7 +7,7 @@
 static void TestOP()
 {
 	srand(time(0));
-	const int N = 1000000;
+	const int N = 100000;
 	int* a1 = (int*)malloc(sizeof(int) * N);
 	int* a2 = (int*)malloc(sizeof(int) * N);
 	int* a3 = (int*)malloc(sizeof(int) * N);
@@ -15,6 +15,7 @@ static void TestOP()
 	int* a5 = (int*)malloc(sizeof(int) * N);
 	int* a6 = (int*)malloc(sizeof(int) * N);
 	int* a7 = (int*)malloc(sizeof(int) * N);
+	int* a8 = (int*)malloc(sizeof(int) * N);
 
 	for (int i = 0; i < N; i++)
 	{
@@ -24,6 +25,8 @@ static void TestOP()
 		a4[i] = a1[i];
 		a5[i] = a1[i];
 		a6[i] = a1[i];
+		a7[i] = a1[i];
+		a8[i] = a1[i];
 	}
 
 	int begin1 = clock();
@@ -47,12 +50,16 @@ static void TestOP()
 	int end5 = clock();
 
 	int begin6 = clock();
-	Quick_Sort_01(a5, 0, N - 1);
+	Quick_Sort_01(a6, 0, N - 1);
 	int end6 = clock();
 	
 	int begin7 = clock();
-	Quick_Sort_02(a5, 0, N - 1);
+	Quick_Sort_02(a7, 0, N - 1);
 	int end7 = clock();
+	
+	int begin8 = clock();
+	Merge_Sort(a8, N);
+	int end8 = clock();
 
 
 	printf("直接插入排序时间间隔：%d\n", end1 - begin1);
@@ -62,6 +69,7 @@ static void TestOP()
 	printf("冒泡排序时间间隔：%d\n", end5 - begin5);
 	printf("快速排序（递归版本）时间间隔：%d\n", end6 - begin6);
 	printf("快速排序（非递归版本）时间间隔：%d\n", end7 - begin7);
+	printf("归并排序时间间隔：%d\n", end8 - begin8);
 
 	free(a1);
 	free(a2);
@@ -70,6 +78,7 @@ static void TestOP()
 	free(a5);
 	free(a6);
 	free(a7);
+	free(a8);
 
 }
 
@@ -92,7 +101,6 @@ static void test_02()
 
 	Insert_Sort(arr, 6);
 }
-
 
 // 希尔排序测试用例
 static void test_03()
@@ -142,13 +150,25 @@ static void test_07()
 {
 	int arr[6] = { 4,3,5,1,9,6 }; 
 	PrintArray(arr, 6);
+	// sizeof(arr)/sizeof(int)-1
+	// 这个参数代表了数组最右边索引的值，要比长度小1
 	Quick_Sort_02(arr, 0, sizeof(arr)/sizeof(int)-1);
 	PrintArray(arr, 6);
 }
 
+// 归并排序测试用例
+static void test_08()
+{
+	int arr[] = { 4,3,5,1,9,6 };
+	PrintArray(arr, sizeof(arr) / sizeof(int));
+	//Merge_Sort(arr, sizeof(arr)/sizeof(int));
+	Merge_Sort02(arr, sizeof(arr)/sizeof(int));
+	PrintArray(arr, sizeof(arr) / sizeof(int));
+}
+
 int main()
 {
-	TestOP();
+	//TestOP();
 	// test_01();
 	// test_02();
 	// test_03();
@@ -156,5 +176,6 @@ int main()
 	// test_05();
 	// test_06();
 	//test_07();
+	test_08();
 	return 0;
 }

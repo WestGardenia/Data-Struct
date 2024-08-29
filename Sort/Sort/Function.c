@@ -444,3 +444,85 @@ void Quick_Sort_02(int* arr, int left, int right)	// 快速排序--非递归实现
 	}
 	StackDestroy(&stack);
 }
+
+void Merge_Arr(int* arr, int begin1, int end1, int begin2, int end2, int* temp)	// 合并函数
+{
+	int left = begin1;
+	int right = end2;
+	int index = begin1;
+	while (begin1 <= end1 && begin2 <= end2)
+	{
+		if (arr[begin1] < arr[begin2])
+			temp[index++] = arr[begin1++];
+		else
+			temp[index++] = arr[begin2++];
+	}
+	// 处理一下两个数组长度不一样时出现的遗漏问题
+	while (begin1 <= end1)
+		temp[index++] = arr[begin1++];
+	while (begin2 <= end2)
+		temp[index++] = arr[begin2++];
+
+	// 将合并的数组拷贝回原数组
+	for (int i = left; i <= right; i++)
+	{
+		arr[i] = temp[i];
+	}
+}
+
+void Part_Merge_Sort(int* arr, int left, int right, int* temp)	// 归并排序子函数--合并两个有序数组
+{
+	if (left >= right)
+		return;
+	int mid = (left + right) / 2;
+	Part_Merge_Sort(arr, left, mid, temp);
+	Part_Merge_Sort(arr, mid + 1, right, temp);
+
+	// 将两个有序数组合并成一个有序数组
+	// 这两个有序数组，本质上将一个数组arr看成了两个有序部分：[left,mid] [mid+1,right]
+	Merge_Arr(arr, left, mid, mid + 1, right, temp);
+}
+void Merge_Sort(int* arr, int n)
+{
+	assert(arr);
+
+	int* temp = (int*)malloc(sizeof(int) * n);
+	Part_Merge_Sort(arr, 0, n - 1, temp);
+
+	free(temp);
+}
+
+void Merge_Sort02(int* arr, int n)	// 归并排序--非递归实现
+{
+	assert(arr);
+
+	int* temp = (int*)malloc(sizeof(int) * n);
+	int gap = 1;
+	while(gap < n)
+	{
+		// 同时，由于要控制不同个数情况下分组之后的数组。得到的gap并不完全是二分情况，所以gap会出现超过n/2的情况·
+		for (int i = 0; i < n; i += gap * 2)
+		{
+			// 在这里gap*2有越界风险，当数组个数为奇数时，比如为3个
+			// 此时i+gap*2-1 = 3 > 3-1 = 2。此时就会发生越界
+			// 所以在合并数组之前需要对合并的数组的首尾进行控制
+			// 同时，合并的数组中，只有第二组数组可能出现越界情况。由于gap控制了范围，第一组数组不可能越界
+			// 两种情况：
+			// 1、合并时只有第一组，没有第二组。
+			//		此时相当于合并合并完成
+			int begin1 = i, end1 = i + gap - 1;
+			int begin2 = i + gap, end2 = i + gap * 2 - 1;
+			if (i + gap >= n)
+				break;
+			// 2、合并时第二组只有部分数据在边界以内，即i+gap*2-1越界
+			if (end2 >= n)
+			{
+				end2 = n - 1;
+			}
+			Merge_Arr(arr, begin1, end1, begin2, end2, temp);
+		}
+		gap *= 2;
+		//PrintArray(arr, n);
+	}
+	free(temp);
+}
