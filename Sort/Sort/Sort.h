@@ -1,6 +1,7 @@
 #pragma once
 #include<stdio.h>
 #include<stdlib.h>
+#include<string.h>
 #include<time.h>
 #include<assert.h>
 
@@ -96,3 +97,7 @@ void Merge_Sort02(int* arr, int n);	// 归并排序--非递归实现
 // 方法步骤：
 // 1、统计相同元素出现的次数
 // 2、根据统计的结果将序列回收到原来的序列中
+
+// 时间复杂度O（N+range）
+// 空间复杂度O（range） 
+void Count_Sort(int* arr, int n);

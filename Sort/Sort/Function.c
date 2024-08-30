@@ -482,6 +482,7 @@ void Part_Merge_Sort(int* arr, int left, int right, int* temp)	// 归并排序子函数
 	// 这两个有序数组，本质上将一个数组arr看成了两个有序部分：[left,mid] [mid+1,right]
 	Merge_Arr(arr, left, mid, mid + 1, right, temp);
 }
+
 void Merge_Sort(int* arr, int n)
 {
 	assert(arr);
@@ -525,4 +526,51 @@ void Merge_Sort02(int* arr, int n)	// 归并排序--非递归实现
 		//PrintArray(arr, n);
 	}
 	free(temp);
+}
+
+void Count_Sort(int* arr, int n)	// 计数排序
+{
+	int min = arr[0];
+	int max = arr[0];
+	for (int i = 0; i < n; i++)
+	{
+		if (arr[i] > max)
+			max = arr[i];
+		if (arr[i] < min)
+			min = arr[i];
+	}
+	// range表示映射数组的范围大小
+	// 相对映射是最小值min -- 0  最大值max -- range
+	int range = max - min + 1;
+
+	int* countArr = (int*)malloc(sizeof(int) * range);
+	if (countArr == NULL)
+	{
+		printf("malloc is fail!!!");
+		exit(-1);
+	}
+	memset(countArr, 0, sizeof(int) * range);
+
+	// 统计数据出现个数
+	for (int i = 0; i < n; i++)
+	{
+		countArr[arr[i] - min]++;
+	}
+
+	int index = 0;
+	for (int i = 0; i < range; i++)
+	{
+		// 这里的循环表示的是，我需要遍历整个countArr数组，来确保原来的数组中每个数据值都能够出现并且被计数到
+		while (countArr[i] != 0)
+		{
+			// countArr数组中，
+			// 数组下标表示的是原来待排序数组中的每个数据
+			// 数组中的数据代表的是原数组中的数据出现的次数
+			// i表示的待排序的数据
+			// 对应的countArr[i]表示的是i这个数据出现的次数
+			arr[index++] = i+min;
+			countArr[i]--;
+		}
+	}
+	free(countArr);
 }

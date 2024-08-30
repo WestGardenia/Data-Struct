@@ -16,6 +16,7 @@ static void TestOP()
 	int* a6 = (int*)malloc(sizeof(int) * N);
 	int* a7 = (int*)malloc(sizeof(int) * N);
 	int* a8 = (int*)malloc(sizeof(int) * N);
+	int* a9 = (int*)malloc(sizeof(int) * N);
 
 	for (int i = 0; i < N; i++)
 	{
@@ -60,6 +61,10 @@ static void TestOP()
 	int begin8 = clock();
 	Merge_Sort(a8, N);
 	int end8 = clock();
+	
+	int begin9 = clock();
+	Merge_Sort(a9, N);
+	int end9 = clock();
 
 
 	printf("直接插入排序时间间隔：%d\n", end1 - begin1);
@@ -70,6 +75,7 @@ static void TestOP()
 	printf("快速排序（递归版本）时间间隔：%d\n", end6 - begin6);
 	printf("快速排序（非递归版本）时间间隔：%d\n", end7 - begin7);
 	printf("归并排序时间间隔：%d\n", end8 - begin8);
+	printf("计数排序时间间隔：%d\n", end9 - begin9);
 
 	free(a1);
 	free(a2);
@@ -79,6 +85,7 @@ static void TestOP()
 	free(a6);
 	free(a7);
 	free(a8);
+	free(a9);
 
 }
 
@@ -166,9 +173,18 @@ static void test_08()
 	PrintArray(arr, sizeof(arr) / sizeof(int));
 }
 
+// 计数排序测试用例
+static void test_09()
+{
+	int arr[] = { 4,3,5,1,9,6,6,2,4,342,5,5,13,542,342,42,45,2,2,3,4,5 };
+	PrintArray(arr, sizeof(arr) / sizeof(int));
+	Count_Sort(arr, sizeof(arr)/ sizeof(int));
+	PrintArray(arr, sizeof(arr) / sizeof(int));
+}
+
 int main()
 {
-	//TestOP();
+	TestOP();
 	// test_01();
 	// test_02();
 	// test_03();
@@ -176,6 +192,7 @@ int main()
 	// test_05();
 	// test_06();
 	//test_07();
-	test_08();
+	//test_08();
+	test_09();
 	return 0;
 }
