@@ -60,7 +60,7 @@
               "RelativeDocumentMoniker": "Sort\\Sort.h",
               "ToolTip": "E:\\\u8BA1\u7B97\u673A\\\u8003\u7814408\\\u6570\u636E\u7ED3\u6784\\Data-Struct\\Sort\\Sort\\Sort.h",
               "RelativeToolTip": "Sort\\Sort.h",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAIwGUAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAAAH0AAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-07-17T14:03:07.631Z",
               "EditorCaption": ""
@@ -75,8 +75,7 @@
               "RelativeToolTip": "Sort\\Function.c",
               "ViewState": "AgIAAB4CAAAAAAAAAAAEwC8CAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-07-17T14:02:51.802Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-17T14:02:51.802Z"
             },
             {
               "$type": "Document",
@@ -88,8 +87,7 @@
               "RelativeToolTip": "Sort\\test.c",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-07-17T14:02:41.81Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-17T14:02:41.81Z"
             }
           ]
         }
